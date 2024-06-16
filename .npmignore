@@ -1,0 +1,7 @@
+.storybook
+node_modules
+dist
+.next
+*.log
+.env
+.git
