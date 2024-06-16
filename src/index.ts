@@ -1,1 +1,3 @@
-export * from './components/Standings';
+import './index.css';
+
+export * from './components';
