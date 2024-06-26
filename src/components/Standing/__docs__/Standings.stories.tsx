@@ -63,3 +63,9 @@ export const Default: Story = {
     teams: sampleTeams,
   },
 };
+
+export const NoDivision: Story = {
+  args: {
+    teams: sampleTeams,
+  },
+};

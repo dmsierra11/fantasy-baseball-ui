@@ -8,30 +8,30 @@ interface Team {
 }
 
 interface StandingsProps {
-  division: string;
+  division?: string;
   teams: Team[];
 }
 
 const Standings: React.FC<StandingsProps> = ({ division, teams }) => {
   return (
-    <div className="card-wrapper p-4 bg-gray-100 rounded-lg shadow-md">
-      <h3 className="text-2xl font-semibold mb-4">{division}</h3>
-      <div className="table-container overflow-x-auto">
+    <div className="card-wrapper">
+      {division && <h3>{division}</h3>}
+      <div className="table-container">
         <div className="table-scroller">
-          <table className="min-w-full bg-white">
+          <table className="min-w-full">
             <thead>
               <tr>
-                <th className="px-4 py-2 border-b-2 border-gray-300">Team</th>
-                <th className="px-4 py-2 border-b-2 border-gray-300">W</th>
-                <th className="px-4 py-2 border-b-2 border-gray-300">L</th>
-                <th className="px-4 py-2 border-b-2 border-gray-300">%</th>
-                <th className="px-4 py-2 border-b-2 border-gray-300">GB</th>
+                <th>Team</th>
+                <th>W</th>
+                <th>L</th>
+                <th>%</th>
+                <th>GB</th>
               </tr>
             </thead>
             <tbody>
               {teams.map((team) => (
                 <tr key={team.name} className="hover:bg-gray-50">
-                  <td className="px-4 py-2 border-b">
+                  <td>
                     <div className="flex items-center">
                       <img
                         src={team.logoUrl}
@@ -41,10 +41,10 @@ const Standings: React.FC<StandingsProps> = ({ division, teams }) => {
                       <span>{team.name}</span>
                     </div>
                   </td>
-                  <td className="px-4 py-2 border-b">{team.wins}</td>
-                  <td className="px-4 py-2 border-b">{team.losses}</td>
-                  <td className="px-4 py-2 border-b">{team.percentage}</td>
-                  <td className="px-4 py-2 border-b">{team.gamesBehind}</td>
+                  <td>{team.wins}</td>
+                  <td>{team.losses}</td>
+                  <td>{team.percentage}</td>
+                  <td>{team.gamesBehind}</td>
                 </tr>
               ))}
             </tbody>
@@ -56,3 +56,4 @@ const Standings: React.FC<StandingsProps> = ({ division, teams }) => {
 };
 
 export { Standings };
+
