@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.game-status-label {
+  @apply font-semibold text-primary uppercase;
+}
+.team-logo {
+  @apply w-6 h-6;
+}
+.team-name {
+  @apply font-semibold text-lg;
+}
+.team-short-name {
+  @apply text-sm text-gray-600;
+}
+.team-record {
+  @apply text-sm text-gray-600;
+}
+.team-score {
+  @apply text-lg font-bold text-black;
+}
+.scoreboard-card-wrapper {
+  @apply bg-white p-4 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-200;
+}
+.scoreboard-link-wrapper {
+  @apply no-underline;
+}
+.scoreboard-content-wrapper {
+  @apply flex flex-col items-start;
+}
+.game-status-wrapper {
+  @apply mb-2;
+}
+.matchup-wrapper {
+  @apply flex flex-col w-full;
+}
+.team-row-wrapper {
+  @apply flex items-center justify-between w-full py-2;
+}
+.team-logo-name-wrapper {
+  @apply flex items-center;
+}
