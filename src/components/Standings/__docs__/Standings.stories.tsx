@@ -1,21 +1,23 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import '../../../index.css';
-import { Standings } from '../Standings';
+import type { TeamStandings } from '../../../types';
+import { StandingsComponent } from '../Standings';
 
-const meta: Meta<typeof Standings> = {
+const meta: Meta<typeof StandingsComponent> = {
   title: 'Standings',
-  component: Standings,
+  component: StandingsComponent,
   parameters: {
     layout: 'centered',
   },
 };
 
 export default meta;
-type Story = StoryObj<typeof Standings>;
+type Story = StoryObj<typeof StandingsComponent>;
 
-const sampleTeams = [
+const sampleTeams: TeamStandings[] = [
   {
     name: 'NYY',
+    shortName: 'NYM',
     wins: 51,
     losses: 26,
     percentage: '.662',
@@ -24,6 +26,7 @@ const sampleTeams = [
   },
   {
     name: 'BAL',
+    shortName: 'BAL',
     wins: 49,
     losses: 25,
     percentage: '.662',
@@ -32,6 +35,7 @@ const sampleTeams = [
   },
   {
     name: 'BOS',
+    shortName: 'BOS',
     wins: 40,
     losses: 35,
     percentage: '.533',
@@ -40,6 +44,7 @@ const sampleTeams = [
   },
   {
     name: 'TB',
+    shortName: 'TB',
     wins: 37,
     losses: 39,
     percentage: '.487',
@@ -48,6 +53,7 @@ const sampleTeams = [
   },
   {
     name: 'TOR',
+    shortName: 'TOR',
     wins: 35,
     losses: 39,
     percentage: '.473',

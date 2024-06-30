@@ -1,18 +1,11 @@
-interface Team {
-  name: string;
-  wins: number;
-  losses: number;
-  percentage: string;
-  gamesBehind: string;
-  logoUrl: string;
-}
+import { TeamStandings } from '../../types';
 
 interface StandingsProps {
   division?: string;
-  teams: Team[];
+  teams: TeamStandings[];
 }
 
-const Standings: React.FC<StandingsProps> = ({ division, teams }) => {
+const StandingsComponent: React.FC<StandingsProps> = ({ division, teams }) => {
   return (
     <div className="card-wrapper">
       {division && <h3>{division}</h3>}
@@ -55,5 +48,4 @@ const Standings: React.FC<StandingsProps> = ({ division, teams }) => {
   );
 };
 
-export { Standings };
-
+export { StandingsComponent };
