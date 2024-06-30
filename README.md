@@ -30,26 +30,57 @@ Import the components you need from the library and use them in your React appli
 
 ```typescript
 import React from 'react';
-import { Scoreboard, Standings } from 'fantasy-baseball-ui';
+import { ScoreboardComponent, StandingsComponent } from 'fantasy-baseball-ui';
+
 const App: React.FC = () => {
-const teams = [{
+  const homeTeam = {
     shortName: 'NYY',
     record: '51-26',
     score: 100,
     logoUrl: 'https://midfield.mlbstatic.com/v1/team/147/spots/72',
-},
-{
+  };
+
+  const awayTeam = {
     shortName: 'BAL',
     record: '49-27',
     score: 90,
     logoUrl: 'https://midfield.mlbstatic.com/v1/team/110/spots/72',
-}];
-return (
+  };
+
+  const teams = [
+    {
+      name: 'NYY',
+      shortName: 'NYY',
+      wins: 51,
+      losses: 26,
+      percentage: '.662',
+      gamesBehind: '-',
+      logoUrl: 'https://midfield.mlbstatic.com/v1/team/147/spots/72',
+    },
+    {
+      name: 'BAL',
+      shortName: 'BAL',
+      wins: 49,
+      losses: 27,
+      percentage: '.645',
+      gamesBehind: '1.5',
+      logoUrl: 'https://midfield.mlbstatic.com/v1/team/110/spots/72',
+    },
+  ];
+
+  return (
     <div>
-        <Scoreboard teams={teams} gameStatus="In Progress" gameUrl="https://www.mlb.com/games/2024/03/01/cws-nyy-103" />
-        <Standings division="AL East" teams={teams} />
+      <ScoreboardComponent
+        homeTeam={homeTeam}
+        awayTeam={awayTeam}
+        gameStatus="In Progress"
+        gameUrl="https://www.mlb.com/games/2024/03/01/cws-nyy-103"
+      />
+      <StandingsComponent division="AL East" teams={teams} />
     </div>
-)};
+  );
+};
+
 export default App;
 ```
 
@@ -57,36 +88,37 @@ export default App;
 
 ### Scoreboard
 
-The `Scoreboard` component displays the scores and details of teams in a game.
+The `ScoreboardComponent` displays the scores and details of teams in a game.
 
 #### Props
 
-- `teams`: An array of team objects.
+- `homeTeam`: An object representing the home team.
+- `awayTeam`: An object representing the away team.
 - `gameStatus`: The current status of the game.
 - `gameUrl`: The URL to the game details.
 
 #### Example
 
 ```typescript
-import { Scoreboard } from 'fantasy-baseball-ui';
-const teams = [{
+import { ScoreboardComponent } from 'fantasy-baseball-ui';
+const homeTeam = {
     shortName: 'NYY',
     record: '51-26',
     score: 100,
     logoUrl: 'https://midfield.mlbstatic.com/v1/team/147/spots/72',
     },
-    {
+    const awayTeam = {
     shortName: 'BAL',
     record: '49-27',
     score: 90,
     logoUrl: 'https://midfield.mlbstatic.com/v1/team/110/spots/72',
-}];
-<Scoreboard teams={teams} gameStatus="In Progress" gameUrl="https://www.mlb.com/games/2024/03/01/cws-nyy-103" />;
+};
+<ScoreboardComponent homeTeam={homeTeam} awayTeam={awayTeam} gameStatus="In Progress" gameUrl="https://www.mlb.com/games/2024/03/01/cws-nyy-103" />;
 ```
 
 ### Standings
 
-The `Standings` component shows the standings of teams in a division.
+The `StandingsComponent` shows the standings of teams in a division.
 
 #### Props
 
@@ -96,7 +128,7 @@ The `Standings` component shows the standings of teams in a division.
 #### Example
 
 ```typescript
-import { Standings } from 'fantasy-baseball-ui';
+import { StandingsComponent } from 'fantasy-baseball-ui';
 const teams = [{
     name: 'NYY',
     wins: 51,
@@ -113,7 +145,7 @@ const teams = [{
     gamesBehind: '0.5',
     logoUrl: 'https://midfield.mlbstatic.com/v1/team/110/spots/72',
 }];
-<Standings division="AL East" teams={teams} />;
+<StandingsComponent division="AL East" teams={teams} />;
 ```
 
 ## Development
