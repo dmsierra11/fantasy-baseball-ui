@@ -18,19 +18,17 @@ const NewsItem: React.FC<NewsItem> = ({ href, imgSrc, imgAlt, text }) => {
   return (
     <li className="headline-stack-card-container">
       <div className="content-card-container">
-        <div className="content-container">
-          <div className="headline-container">
-            <a className="link headline-link" href={href}>
-              <div className="headline-wrapper">
-                <div className="spot-container">
-                  <div className="image-wrapper">
-                    <img src={imgSrc} alt={imgAlt} className="img" />
-                  </div>
+        <div className="headline-container">
+          <a className="link headline-link" href={href}>
+            <div className="headline-wrapper">
+              <div className="spot-container">
+                <div className="image-wrapper">
+                  <img src={imgSrc} alt={imgAlt} className="img" />
                 </div>
-                <span>{text}</span>
               </div>
-            </a>
-          </div>
+              <span>{text}</span>
+            </div>
+          </a>
         </div>
       </div>
     </li>

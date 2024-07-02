@@ -29,10 +29,6 @@
     @apply bg-white p-4 rounded-lg shadow-md;
   }
 
-  .content-container {
-    @apply flex items-center;
-  }
-
   .table-container {
     @apply overflow-x-auto bg-white;
   }
