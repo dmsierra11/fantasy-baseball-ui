@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.headline-stack-title {
+  @apply font-semibold text-2xl mb-4;
+}
+
+.headline-stack-list {
+  @apply list-none p-0;
+}
+
+.headline-stack-card-container {
+  @apply mb-4;
+}
+
+.headline-container {
+  @apply flex-1;
+}
+
+.headline-link {
+  @apply flex items-center;
+}
+
+.headline-wrapper {
+  @apply flex items-center;
+}
+
+.spot-container {
+  @apply w-12 h-12 mr-4;
+}
