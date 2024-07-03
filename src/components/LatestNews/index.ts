@@ -1,1 +1,1 @@
-export { LatestNews } from './LatestNews';
+export { LatestNewsComponent } from './LatestNews';

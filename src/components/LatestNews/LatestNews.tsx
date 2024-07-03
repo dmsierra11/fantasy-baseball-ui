@@ -1,13 +1,6 @@
 import React from 'react';
+import type { NewsItem } from '../../types/news';
 import './LatestNews.css';
-
-interface NewsItem {
-  id: string;
-  href: string;
-  imgSrc: string;
-  text: string;
-  imgAlt?: string;
-}
 
 interface LatestNewsProps {
   newsItems: NewsItem[];
@@ -35,11 +28,16 @@ const NewsItem: React.FC<NewsItem> = ({ href, imgSrc, imgAlt, text }) => {
   );
 };
 
-const LatestNews: React.FC<LatestNewsProps> = ({ newsItems, sectionTitle }) => {
+const LatestNewsComponent: React.FC<LatestNewsProps> = ({
+  newsItems,
+  sectionTitle,
+}) => {
   return (
     <div className="card-wrapper">
       <section>
-        {sectionTitle && <h2 className="headline-stack-title">{sectionTitle}</h2>}
+        {sectionTitle && (
+          <h2 className="headline-stack-title">{sectionTitle}</h2>
+        )}
         <ul className="headline-stack-list">
           {newsItems.map((item) => (
             <NewsItem key={item.id} {...item} />
@@ -50,4 +48,4 @@ const LatestNews: React.FC<LatestNewsProps> = ({ newsItems, sectionTitle }) => {
   );
 };
 
-export { LatestNews };
+export { LatestNewsComponent };
