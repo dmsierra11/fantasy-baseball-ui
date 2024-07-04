@@ -5,8 +5,11 @@ export interface Team {
 }
 
 export type TeamScore = Team & {
-  score: number;
   record: string;
+  score?: number;
+  runs?: number;
+  hits?: number;
+  errors?: number;
 };
 
 export type TeamStandings = Team & {
