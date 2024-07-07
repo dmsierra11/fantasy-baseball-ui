@@ -16,7 +16,8 @@ type Story = StoryObj<typeof TopStory>;
 // Conditions Test
 export const Default: Story = {
   args: {
-    imageUrl: 'https://images.unsplash.com/photo-1593642634367-d91a135587b5',
+    imageUrl:
+      'https://a.espncdn.com/combiner/i?img=%2Fphoto%2F2024%2F0301%2Fr%2Fpittsburgh-penguins-vs-baltimore-orioles_1200_675_x_450.jpg',
     imageAlt: '',
     headline: 'Pittsburgh Penguins vs Baltimore Orioles',
     description: 'Pittsburgh Penguins vs Baltimore Orioles',

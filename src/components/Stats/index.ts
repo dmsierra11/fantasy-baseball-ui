@@ -1,0 +1,1 @@
+export { PlayerStatsComponent } from './PlayerStats';
