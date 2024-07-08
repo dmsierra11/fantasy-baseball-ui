@@ -1,8 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
-    "./src/**/*.{js,ts,jsx,tsx}"
-  ],
+  content: ['./src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
       colors: {
@@ -11,12 +9,12 @@ module.exports = {
         accent: '#F59E0B', // Example accent color
       },
       fontFamily: {
-        sans: ['Inter', 'sans-serif'], // Example custom font
-        serif: ['Merriweather', 'serif'],
+        sans: ['Roboto', 'sans-serif'], // Set Roboto as the primary font
+        serif: ['Merriweather', 'serif'], // Optional: Keep Merriweather for serif text
       },
       spacing: {
-        '128': '32rem', // Example custom spacing
-        '144': '36rem',
+        128: '32rem', // Example custom spacing
+        144: '36rem',
       },
       borderRadius: {
         '4xl': '2rem', // Example custom border radius
@@ -24,7 +22,4 @@ module.exports = {
     },
   },
   plugins: [],
-}
-
-
-
+};

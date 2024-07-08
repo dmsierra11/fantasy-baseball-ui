@@ -1,5 +1,6 @@
 import React from 'react';
 import type { NewsItem } from '../../types/news';
+import { Typography } from '../Typography';
 import './LatestNews.css';
 
 interface LatestNewsProps {
@@ -35,9 +36,7 @@ const LatestNewsComponent: React.FC<LatestNewsProps> = ({
   return (
     <div className="card-wrapper">
       <section>
-        {sectionTitle && (
-          <h2 className="headline-stack-title">{sectionTitle}</h2>
-        )}
+        {sectionTitle && <Typography variant="h4">{sectionTitle}</Typography>}
         <ul className="headline-stack-list">
           {newsItems.map((item) => (
             <NewsItem key={item.id} {...item} />
