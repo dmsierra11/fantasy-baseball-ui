@@ -2,6 +2,7 @@ import { ThemeProvider, Typography } from '@mui/material';
 import React from 'react';
 import theme from '../../config/theme';
 import type { Match, TeamScore } from '../../types';
+import { formatDate } from '../../utils/date';
 import './Scoreboard.css';
 
 interface ScoreboardProps extends Match {
@@ -74,17 +75,20 @@ const ScoreboardComponent: React.FC<ScoreboardProps> = ({
   gameDetailsPath,
   progress,
 }) => {
+  const formattedDate = formatDate(date);
   if (gameDetailsPath) {
     return (
       <a href={gameDetailsPath}>
         <ScoreboardContent
-          {...{ date, homeTeam, awayTeam, status, progress }}
+          {...{ date: formattedDate, homeTeam, awayTeam, status, progress }}
         />
       </a>
     );
   }
   return (
-    <ScoreboardContent {...{ date, homeTeam, awayTeam, status, progress }} />
+    <ScoreboardContent
+      {...{ date: formattedDate, homeTeam, awayTeam, status, progress }}
+    />
   );
 };
 

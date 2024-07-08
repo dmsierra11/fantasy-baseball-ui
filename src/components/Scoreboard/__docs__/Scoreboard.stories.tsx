@@ -40,7 +40,7 @@ const awayTeam: TeamScore = {
 // Conditions Test
 export const Default: Story = {
   args: {
-    date: 'May-01',
+    date: 'Mon Jul 08 2024 18:01:30 GMT+0200',
     homeTeam: {
       logoUrl: homeTeam.logoUrl,
       name: homeTeam.name,
@@ -58,7 +58,7 @@ export const Default: Story = {
 
 export const Finished: Story = {
   args: {
-    date: 'May-01',
+    date: 'Mon Jul 08 2024 18:01:30 GMT+0200',
     homeTeam: {
       logoUrl: homeTeam.logoUrl,
       name: homeTeam.name,
@@ -79,7 +79,7 @@ export const Finished: Story = {
 
 export const Postponed: Story = {
   args: {
-    date: 'May-01',
+    date: 'Mon Jul 08 2024 18:01:30 GMT+0200',
     homeTeam: {
       logoUrl: homeTeam.logoUrl,
       name: homeTeam.name,
@@ -98,7 +98,7 @@ export const Postponed: Story = {
 
 export const InProgress: Story = {
   args: {
-    date: 'May-01',
+    date: 'Mon Jul 08 2024 18:01:30 GMT+0200',
     homeTeam: {
       logoUrl: homeTeam.logoUrl,
       name: homeTeam.name,
