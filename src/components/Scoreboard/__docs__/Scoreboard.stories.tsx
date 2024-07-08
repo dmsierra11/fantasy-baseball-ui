@@ -15,13 +15,13 @@ export default meta;
 type Story = StoryObj<typeof ScoreboardComponent>;
 
 const Team1: Team = {
-  logoUrl: 'https://midfield.mlbstatic.com/v1/team/147/spots/72',
+  logoUrl: 'https://www.mlbstatic.com/team-logos/team-cap-on-light/147.svg',
   name: 'New York Yankees',
   shortName: 'NYY',
 };
 
 const Team2: Team = {
-  logoUrl: 'https://midfield.mlbstatic.com/v1/team/110/spots/72',
+  logoUrl: 'https://www.mlbstatic.com/team-logos/team-cap-on-light/110.svg',
   name: 'Baltimore Orioles',
   shortName: 'BAL',
 };
