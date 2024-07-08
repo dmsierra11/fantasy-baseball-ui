@@ -21,18 +21,16 @@ export const Default: Story = {
       {
         id: '1',
         href: 'https://www.mlb.com/news/news/article/2024/03/01/103-nyy-baltimore-orioles-game-news-and-updates',
-        imgSrc:
-          'https://a.espncdn.com/combiner/i?img=%2Fphoto%2F2024%2F0301%2Fr%2Fpittsburgh-penguins-vs-baltimore-orioles_1200_675_x_450.jpg',
+        imgSrc: 'https://midfield.mlbstatic.com/v1/team/147/spots/72',
         imgAlt: '',
-        text: 'Pittsburgh Penguins vs Baltimore Orioles',
+        text: 'Complete All-Star Game rosters include familiar faces, 32 first-timers',
       },
       {
         id: '2',
         href: 'https://www.mlb.com/news/news/article/2024/03/01/103-nyy-baltimore-orioles-game-news-and-updates',
-        imgSrc:
-          'https://a.espncdn.com/combiner/i?img=%2Fphoto%2F2024%2F0301%2Fr%2Fpittsburgh-penguins-vs-baltimore-orioles_1200_675_x_450.jpg',
+        imgSrc: 'https://midfield.mlbstatic.com/v1/team/140/spots/72',
         imgAlt: '',
-        text: 'Pittsburgh Penguins vs Baltimore Orioles',
+        text: 'Team-by-team breakdown of the 2024 All-Stars',
       },
     ],
   },
