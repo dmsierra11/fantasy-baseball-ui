@@ -1,7 +1,6 @@
 import Avatar from '@mui/material/Avatar';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
 import Divider from '@mui/material/Divider';
+import Paper from '@mui/material/Paper';
 import Stack from '@mui/material/Stack';
 import React from 'react';
 import type { NewsItem } from '../../types/news';
@@ -36,23 +35,21 @@ const LatestNewsComponent: React.FC<LatestNewsProps> = ({
   divider,
 }) => {
   return (
-    <Card>
-      <CardContent>
-        {sectionTitle && (
-          <Typography variant="h5" mb={2}>
-            {sectionTitle}
-          </Typography>
-        )}
-        <Stack direction="column" spacing={2}>
-          {newsItems.map((item) => (
-            <>
-              <NewsItemComponent key={item.id} {...item} />
-              {divider && <Divider />}
-            </>
-          ))}
-        </Stack>
-      </CardContent>
-    </Card>
+    <Paper className="p-4">
+      {sectionTitle && (
+        <Typography variant="h5" mb={2}>
+          {sectionTitle}
+        </Typography>
+      )}
+      <Stack direction="column" spacing={2}>
+        {newsItems.map((item) => (
+          <>
+            <NewsItemComponent key={item.id} {...item} />
+            {divider && <Divider />}
+          </>
+        ))}
+      </Stack>
+    </Paper>
   );
 };
 
