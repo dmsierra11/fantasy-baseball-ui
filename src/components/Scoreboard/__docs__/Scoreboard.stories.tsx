@@ -40,6 +40,25 @@ const awayTeam: TeamScore = {
 // Conditions Test
 export const Default: Story = {
   args: {
+    date: 'May-01',
+    homeTeam: {
+      logoUrl: homeTeam.logoUrl,
+      name: homeTeam.name,
+      shortName: homeTeam.shortName,
+      record: homeTeam.record,
+    },
+    awayTeam: {
+      logoUrl: awayTeam.logoUrl,
+      name: awayTeam.name,
+      shortName: awayTeam.shortName,
+      record: awayTeam.record,
+    },
+  },
+};
+
+export const Finished: Story = {
+  args: {
+    date: 'May-01',
     homeTeam: {
       logoUrl: homeTeam.logoUrl,
       name: homeTeam.name,
@@ -54,12 +73,11 @@ export const Default: Story = {
       record: awayTeam.record,
       score: awayTeam.score,
     },
-    status: 'In Progress',
-    gameUrl: 'https://www.mlb.com/games/2024/03/01/cws-nyy-103',
+    status: 'final',
   },
 };
 
-export const NotStarted: Story = {
+export const Postponed: Story = {
   args: {
     date: 'May-01',
     homeTeam: {
@@ -74,6 +92,26 @@ export const NotStarted: Story = {
       shortName: awayTeam.shortName,
       record: awayTeam.record,
     },
-    gameUrl: 'https://www.mlb.com/games/2024/03/01/cws-nyy-103',
+    status: 'postponed',
+  },
+};
+
+export const InProgress: Story = {
+  args: {
+    date: 'May-01',
+    homeTeam: {
+      logoUrl: homeTeam.logoUrl,
+      name: homeTeam.name,
+      shortName: homeTeam.shortName,
+      record: homeTeam.record,
+    },
+    awayTeam: {
+      logoUrl: awayTeam.logoUrl,
+      name: awayTeam.name,
+      shortName: awayTeam.shortName,
+      record: awayTeam.record,
+    },
+    status: 'started',
+    progress: 2,
   },
 };

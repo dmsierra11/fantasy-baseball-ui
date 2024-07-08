@@ -1,6 +1,7 @@
+import { ThemeProvider, Typography } from '@mui/material';
 import React from 'react';
+import theme from '../../config/theme';
 import type { Match, TeamScore } from '../../types';
-import { Typography } from '../Typography';
 import './Scoreboard.css';
 
 interface ScoreboardProps extends Match {
@@ -29,20 +30,39 @@ const TeamRow: React.FC<TeamScore> = ({
   );
 };
 
+const getGameProgress = (progress?: number | string) => {
+  if (typeof progress === 'string') {
+    return progress;
+  }
+  if (progress && progress % 2 !== 0) {
+    return `BOTTOM ${progress}`;
+  }
+  return `TOP ${progress || 1}`;
+};
+
 const ScoreboardContent: React.FC<ScoreboardProps> = ({
   date,
   homeTeam,
   awayTeam,
   status,
+  progress,
 }) => {
+  const gameStatus = status === 'started' ? getGameProgress(progress) : status;
   return (
-    <div className="scoreboard-card-wrapper">
-      <Typography variant="overline" className="game-status-label">
-        {status || date}
-      </Typography>
-      <TeamRow {...homeTeam} />
-      <TeamRow {...awayTeam} />
-    </div>
+    <ThemeProvider theme={theme}>
+      <div className="scoreboard-card-wrapper">
+        <Typography
+          variant="overline"
+          color="textSecondary"
+          className="game-status-label"
+          fontWeight="600"
+        >
+          {gameStatus || date}
+        </Typography>
+        <TeamRow {...homeTeam} />
+        <TeamRow {...awayTeam} />
+      </div>
+    </ThemeProvider>
   );
 };
 
@@ -52,15 +72,20 @@ const ScoreboardComponent: React.FC<ScoreboardProps> = ({
   awayTeam,
   status,
   gameDetailsPath,
+  progress,
 }) => {
   if (gameDetailsPath) {
     return (
       <a href={gameDetailsPath}>
-        <ScoreboardContent {...{ date, homeTeam, awayTeam, status }} />
+        <ScoreboardContent
+          {...{ date, homeTeam, awayTeam, status, progress }}
+        />
       </a>
     );
   }
-  return <ScoreboardContent {...{ date, homeTeam, awayTeam, status }} />;
+  return (
+    <ScoreboardContent {...{ date, homeTeam, awayTeam, status, progress }} />
+  );
 };
 
 export { ScoreboardComponent };
