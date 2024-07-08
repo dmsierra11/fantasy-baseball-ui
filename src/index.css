@@ -13,16 +13,8 @@
 }
 
 @layer components {
-  .card-wrapper {
-    @apply p-4 rounded-4xl shadow-md;
-  }
-
   .content-card-container {
     @apply bg-white p-4 rounded-lg shadow-md;
-  }
-
-  .table-container {
-    @apply overflow-x-auto bg-white;
   }
 
   .link {
