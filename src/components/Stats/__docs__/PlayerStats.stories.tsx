@@ -68,8 +68,9 @@ export const Default: Story = {
   },
 };
 
-export const NoDivision: Story = {
+export const WithSectionTitle: Story = {
   args: {
     players: samplePlayers,
+    sectionTitle: 'Player Stats',
   },
 };
