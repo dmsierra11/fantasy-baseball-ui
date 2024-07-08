@@ -1,4 +1,8 @@
 import { ThemeProvider, Typography } from '@mui/material';
+import Avatar from '@mui/material/Avatar';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import Stack from '@mui/material/Stack';
 import React from 'react';
 import theme from '../../config/theme';
 import type { Match, TeamScore } from '../../types';
@@ -16,18 +20,21 @@ const TeamRow: React.FC<TeamScore> = ({
   score,
 }) => {
   return (
-    <div key={shortName} className="team-row-wrapper">
-      <div className="team-logo-name-wrapper">
-        <img src={logoUrl} alt={shortName} className="team-logo" />
-        <Typography variant="h6" ml={2} mr={2}>
-          {shortName}
-        </Typography>
-      </div>
-      <Typography variant="body2" color="textSecondary" mr={2}>
+    <Stack
+      key={shortName}
+      direction={'row'}
+      spacing={2}
+      className="team-row-wrapper"
+    >
+      <Stack direction={'row'} spacing={2}>
+        <Avatar src={logoUrl} alt={shortName} sx={{ width: 24, height: 24 }} />
+        <Typography fontWeight="bold">{shortName}</Typography>
+      </Stack>
+      <Typography fontSize="small" color="textSecondary">
         {record}
       </Typography>
-      {score && <Typography variant="h6">{score}</Typography>}
-    </div>
+      {score && <Typography fontWeight="bold">{score}</Typography>}
+    </Stack>
   );
 };
 
@@ -51,18 +58,15 @@ const ScoreboardContent: React.FC<ScoreboardProps> = ({
   const gameStatus = status === 'started' ? getGameProgress(progress) : status;
   return (
     <ThemeProvider theme={theme}>
-      <div className="scoreboard-card-wrapper">
-        <Typography
-          variant="overline"
-          color="textSecondary"
-          className="game-status-label"
-          fontWeight="600"
-        >
-          {gameStatus || date}
-        </Typography>
-        <TeamRow {...homeTeam} />
-        <TeamRow {...awayTeam} />
-      </div>
+      <Card variant="outlined" className="scoreboard-card-wrapper">
+        <CardContent>
+          <Typography variant="overline" color="textSecondary" fontWeight="600">
+            {gameStatus || date}
+          </Typography>
+          <TeamRow {...homeTeam} />
+          <TeamRow {...awayTeam} />
+        </CardContent>
+      </Card>
     </ThemeProvider>
   );
 };

@@ -5,12 +5,6 @@
 .team-row-wrapper {
   @apply flex items-center justify-between w-full py-2;
 }
-.team-logo-name-wrapper {
-  @apply flex items-center;
-}
-.team-logo {
-  @apply w-6 h-6;
-}
 .scoreboard-card-wrapper {
-  @apply bg-white p-4 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-200 min-w-[200px];
+  @apply hover:shadow-xl transition-shadow duration-200 min-w-[200px];
 }
