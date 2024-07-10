@@ -1,17 +1,17 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import '../../../index.css';
-import { LatestNewsComponent } from '../LatestNews';
+import { LatestNews } from '../LatestNews';
 
-const meta: Meta<typeof LatestNewsComponent> = {
+const meta: Meta<typeof LatestNews> = {
   title: 'LatestNews',
-  component: LatestNewsComponent,
+  component: LatestNews,
   parameters: {
     layout: 'centered',
   },
 };
 
 export default meta;
-type Story = StoryObj<typeof LatestNewsComponent>;
+type Story = StoryObj<typeof LatestNews>;
 
 // Conditions Test
 export const Default: Story = {

@@ -7,18 +7,18 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Typography from '@mui/material/Typography';
-import { TeamStandings } from '../../types';
+import type { TeamStandingsType } from '../../types';
 
 interface StandingsProps {
   division?: string;
-  teams: TeamStandings[];
+  teams: TeamStandingsType[];
 }
 
-const StandingsComponent: React.FC<StandingsProps> = ({ division, teams }) => {
+const Standings: React.FC<StandingsProps> = ({ division, teams }) => {
   return (
     <Paper className="p-4">
       {division && (
-        <Typography variant="h6" className="mb-4">
+        <Typography variant="h6" mb={2}>
           {division}
         </Typography>
       )}
@@ -59,4 +59,4 @@ const StandingsComponent: React.FC<StandingsProps> = ({ division, teams }) => {
   );
 };
 
-export { StandingsComponent };
+export { Standings };

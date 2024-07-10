@@ -1,37 +1,37 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import '../../../index.css';
-import type { Team, TeamScore } from '../../../types';
-import { ScoreboardComponent } from '../Scoreboard';
+import type { TeamScoreType, TeamType } from '../../../types';
+import { Scoreboard } from '../Scoreboard';
 
-const meta: Meta<typeof ScoreboardComponent> = {
+const meta: Meta<typeof Scoreboard> = {
   title: 'Scoreboard',
-  component: ScoreboardComponent,
+  component: Scoreboard,
   parameters: {
     layout: 'centered',
   },
 };
 
 export default meta;
-type Story = StoryObj<typeof ScoreboardComponent>;
+type Story = StoryObj<typeof Scoreboard>;
 
-const Team1: Team = {
+const Team1: TeamType = {
   logoUrl: 'https://www.mlbstatic.com/team-logos/team-cap-on-light/147.svg',
   name: 'New York Yankees',
   shortName: 'NYY',
 };
 
-const Team2: Team = {
+const Team2: TeamType = {
   logoUrl: 'https://www.mlbstatic.com/team-logos/team-cap-on-light/110.svg',
   name: 'Baltimore Orioles',
   shortName: 'BAL',
 };
 
-const homeTeam: TeamScore = {
+const homeTeam: TeamScoreType = {
   ...Team1,
   record: `51-26`,
   score: 11,
 };
-const awayTeam: TeamScore = {
+const awayTeam: TeamScoreType = {
   ...Team2,
   record: `50-27`,
   score: 9,

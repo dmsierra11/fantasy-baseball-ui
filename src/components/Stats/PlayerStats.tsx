@@ -6,14 +6,14 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Typography from '@mui/material/Typography';
-import { PlayerStats } from '../../types';
+import type { PlayerStatsType } from '../../types';
 
 interface PlayerStatsProps {
-  players: PlayerStats[];
+  players: PlayerStatsType[];
   sectionTitle?: string;
 }
 
-const PlayerStatsComponent: React.FC<PlayerStatsProps> = ({
+const PlayerStats: React.FC<PlayerStatsProps> = ({
   players,
   sectionTitle,
 }) => {
@@ -21,7 +21,7 @@ const PlayerStatsComponent: React.FC<PlayerStatsProps> = ({
   return (
     <Paper className="p-4">
       {sectionTitle && (
-        <Typography variant="h6" className="mb-4">
+        <Typography variant="h6" mb={2}>
           {sectionTitle}
         </Typography>
       )}
@@ -53,4 +53,4 @@ const PlayerStatsComponent: React.FC<PlayerStatsProps> = ({
   );
 };
 
-export { PlayerStatsComponent };
+export { PlayerStats };

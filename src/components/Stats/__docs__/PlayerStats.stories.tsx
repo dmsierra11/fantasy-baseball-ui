@@ -1,20 +1,20 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import '../../../index.css';
-import type { PlayerStats } from '../../../types';
-import { PlayerStatsComponent } from '../PlayerStats';
+import type { PlayerStatsType } from '../../../types';
+import { PlayerStats } from '../PlayerStats';
 
-const meta: Meta<typeof PlayerStatsComponent> = {
+const meta: Meta<typeof PlayerStats> = {
   title: 'PlayerStats',
-  component: PlayerStatsComponent,
+  component: PlayerStats,
   parameters: {
     layout: 'centered',
   },
 };
 
 export default meta;
-type Story = StoryObj<typeof PlayerStatsComponent>;
+type Story = StoryObj<typeof PlayerStats>;
 
-const samplePlayers: PlayerStats[] = [
+const samplePlayers: PlayerStatsType[] = [
   {
     name: 'Aaron Nola',
     team: 'PHI',

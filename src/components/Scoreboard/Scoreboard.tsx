@@ -1,19 +1,18 @@
-import { ThemeProvider, Typography } from '@mui/material';
+import { Typography } from '@mui/material';
 import Avatar from '@mui/material/Avatar';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Stack from '@mui/material/Stack';
 import React from 'react';
-import theme from '../../config/theme';
-import type { Match, TeamScore } from '../../types';
+import type { MatchType, TeamScoreType } from '../../types';
 import { formatDate } from '../../utils/date';
 import './Scoreboard.css';
 
-interface ScoreboardProps extends Match {
+interface ScoreboardProps extends MatchType {
   gameDetailsPath?: string;
 }
 
-const TeamRow: React.FC<TeamScore> = ({
+const TeamRow: React.FC<TeamScoreType> = ({
   shortName,
   logoUrl,
   record,
@@ -57,7 +56,6 @@ const ScoreboardContent: React.FC<ScoreboardProps> = ({
 }) => {
   const gameStatus = status === 'started' ? getGameProgress(progress) : status;
   return (
-    <ThemeProvider theme={theme}>
       <Card variant="outlined" className="scoreboard-card-wrapper">
         <CardContent>
           <Typography variant="overline" color="textSecondary" fontWeight="600">
@@ -67,11 +65,10 @@ const ScoreboardContent: React.FC<ScoreboardProps> = ({
           <TeamRow {...awayTeam} />
         </CardContent>
       </Card>
-    </ThemeProvider>
   );
 };
 
-const ScoreboardComponent: React.FC<ScoreboardProps> = ({
+const Scoreboard: React.FC<ScoreboardProps> = ({
   date,
   homeTeam,
   awayTeam,
@@ -96,4 +93,4 @@ const ScoreboardComponent: React.FC<ScoreboardProps> = ({
   );
 };
 
-export { ScoreboardComponent };
+export { Scoreboard };

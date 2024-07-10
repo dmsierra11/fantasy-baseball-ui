@@ -1,11 +1,11 @@
-import { TeamScore } from './team';
+import type { TeamScoreType } from './team';
 
 export type MatchStatus = 'started' | 'postponed' | 'delayed' | 'final';
 
-export interface Match {
+export interface MatchType {
   date: string;
-  homeTeam: TeamScore;
-  awayTeam: TeamScore;
+  homeTeam: TeamScoreType;
+  awayTeam: TeamScoreType;
   status?: MatchStatus;
   progress?: string | number;
 }

@@ -1,19 +1,19 @@
+import { Typography } from '@mui/material';
 import Avatar from '@mui/material/Avatar';
 import Divider from '@mui/material/Divider';
 import Paper from '@mui/material/Paper';
 import Stack from '@mui/material/Stack';
 import React from 'react';
-import type { NewsItem } from '../../types/news';
-import { Typography } from '../Typography';
+import type { NewsItemType } from '../../types/news';
 import './LatestNews.css';
 
 interface LatestNewsProps {
-  newsItems: NewsItem[];
+  newsItems: NewsItemType[];
   sectionTitle?: string;
   divider?: boolean;
 }
 
-const NewsItemComponent: React.FC<NewsItem> = ({
+const NewsItem: React.FC<NewsItemType> = ({
   href,
   imgSrc,
   imgAlt,
@@ -29,7 +29,7 @@ const NewsItemComponent: React.FC<NewsItem> = ({
   );
 };
 
-const LatestNewsComponent: React.FC<LatestNewsProps> = ({
+const LatestNews: React.FC<LatestNewsProps> = ({
   newsItems,
   sectionTitle,
   divider,
@@ -44,7 +44,7 @@ const LatestNewsComponent: React.FC<LatestNewsProps> = ({
       <Stack direction="column" spacing={2}>
         {newsItems.map((item) => (
           <>
-            <NewsItemComponent key={item.id} {...item} />
+            <NewsItem key={item.id} {...item} />
             {divider && <Divider />}
           </>
         ))}
@@ -53,4 +53,4 @@ const LatestNewsComponent: React.FC<LatestNewsProps> = ({
   );
 };
 
-export { LatestNewsComponent };
+export { LatestNews };

@@ -1,4 +1,4 @@
-export interface PlayerStats {
+export interface PlayerStatsType {
   name: string;
   team: string;
   stats: {

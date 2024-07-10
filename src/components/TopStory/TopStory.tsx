@@ -1,8 +1,7 @@
-import { ThemeProvider, Typography } from '@mui/material';
+import { Typography } from '@mui/material';
 import Box from '@mui/material/Box';
 import CardMedia from '@mui/material/CardMedia';
 import Paper from '@mui/material/Paper';
-import theme from '../../config/theme';
 import './TopStory.css';
 
 interface TopStoryProps {
@@ -21,7 +20,6 @@ const TopStory: React.FC<TopStoryProps> = ({
   link,
 }) => {
   return (
-    <ThemeProvider theme={theme}>
       <Paper data-cmp-id="top-story" style={{ overflowX: 'auto' }}>
         <a href={link}>
           <Box className="media-container">
@@ -47,7 +45,6 @@ const TopStory: React.FC<TopStoryProps> = ({
           </Box>
         </a>
       </Paper>
-    </ThemeProvider>
   );
 };
 
