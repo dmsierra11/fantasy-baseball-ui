@@ -1,3 +1,47 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  h3 {
+    @apply text-2xl font-semibold mb-4 text-primary;
+  }
+
+  th {
+    @apply px-4 py-2 border-b-2 border-gray-300;
+  }
+
+  td {
+    @apply px-4 py-2 border-b;
+  }
+
+  span {
+    @apply font-sans;
+  }
+}
+
+@layer components {
+  .card-wrapper {
+    @apply p-4 rounded-4xl shadow-md;
+  }
+
+  .content-card-container {
+    @apply bg-white p-4 rounded-lg shadow-md;
+  }
+
+  .table-container {
+    @apply overflow-x-auto bg-white;
+  }
+
+  .link {
+    @apply no-underline text-black;
+  }
+
+  .image-wrapper {
+    @apply w-full h-full;
+  }
+
+  .img {
+    @apply w-full h-full object-cover;
+  }
+}

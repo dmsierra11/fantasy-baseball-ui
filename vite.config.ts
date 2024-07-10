@@ -1,6 +1,8 @@
-/// <reference types="vitest" />
+import react from '@vitejs/plugin-react';
+import autoprefixer from 'autoprefixer';
 import tailwindcss from 'tailwindcss';
 import { defineConfig } from 'vite';
+import cssInjectedByJsPlugin from 'vite-plugin-css-injected-by-js';
 import dts from 'vite-plugin-dts';
 import { peerDependencies } from './package.json';
 
@@ -16,17 +18,27 @@ export default defineConfig({
       output: {
         globals: {
           react: 'React',
-          tailwindcss: 'tailwindcss',
         },
       },
     },
     sourcemap: true, // Generates source maps for debugging.
     emptyOutDir: true, // Clears the output directory before building.
   },
-  plugins: [dts()], // Uses the 'vite-plugin-dts' plugin for generating TypeScript declaration files (d.ts).
+  plugins: [
+    react(),
+    dts(),
+    cssInjectedByJsPlugin(),
+  ],
   css: {
     postcss: {
-      plugins: [tailwindcss],
+      plugins: [tailwindcss, autoprefixer],
     },
   },
 });
+
+
+
+
+
+
+
