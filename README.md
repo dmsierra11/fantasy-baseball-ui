@@ -1,152 +1,183 @@
-# Fantasy Baseball UI Library
+# Fantasy Baseball UI
 
-A React component library for creating fantasy baseball user interfaces. This library includes components for displaying scoreboards, team standings, and more.
+Fantasy Baseball UI is a React-based user interface for displaying various components related to fantasy baseball, such as top stories, scoreboards, standings, and player stats. This project leverages modern web technologies like TypeScript, Tailwind CSS, and Vite for a seamless development experience.
 
 ## Table of Contents
 
 - [Installation](#installation)
-- [Usage](#usage)
 - [Components](#components)
-  - [Scoreboard](#scoreboard)
-  - [Standings](#standings)
-- [Development](#development)
+- [Usage](#usage)
 - [Building and Publishing](#building-and-publishing)
 - [License](#license)
 
 ## Installation
 
-To install the library, use npm or yarn:
+To get started with the project, clone the repository and install the dependencies:
+
 ```bash
-npm install fantasy-baseball-ui
-```
-or
-```bash
-yarn add fantasy-baseball-ui
-```
-
-## Usage
-
-Import the components you need from the library and use them in your React application:
-
-```typescript
-import React from 'react';
-import { ScoreboardComponent, StandingsComponent } from 'fantasy-baseball-ui';
-
-const App: React.FC = () => {
-  const homeTeam = {
-    shortName: 'NYY',
-    record: '51-26',
-    score: 100,
-    logoUrl: 'https://midfield.mlbstatic.com/v1/team/147/spots/72',
-  };
-
-  const awayTeam = {
-    shortName: 'BAL',
-    record: '49-27',
-    score: 90,
-    logoUrl: 'https://midfield.mlbstatic.com/v1/team/110/spots/72',
-  };
-
-  const teams = [
-    {
-      name: 'NYY',
-      shortName: 'NYY',
-      wins: 51,
-      losses: 26,
-      percentage: '.662',
-      gamesBehind: '-',
-      logoUrl: 'https://midfield.mlbstatic.com/v1/team/147/spots/72',
-    },
-    {
-      name: 'BAL',
-      shortName: 'BAL',
-      wins: 49,
-      losses: 27,
-      percentage: '.645',
-      gamesBehind: '1.5',
-      logoUrl: 'https://midfield.mlbstatic.com/v1/team/110/spots/72',
-    },
-  ];
-
-  return (
-    <div>
-      <ScoreboardComponent
-        homeTeam={homeTeam}
-        awayTeam={awayTeam}
-        gameStatus="In Progress"
-        gameUrl="https://www.mlb.com/games/2024/03/01/cws-nyy-103"
-      />
-      <StandingsComponent division="AL East" teams={teams} />
-    </div>
-  );
-};
-
-export default App;
+git clone https://github.com/yourusername/fantasy-baseball-ui.git
+cd fantasy-baseball-ui
+npm install
 ```
 
 ## Components
 
-### Scoreboard
+The project includes several reusable components, each with its own stories for Storybook:
 
-The `ScoreboardComponent` displays the scores and details of teams in a game.
+- **TopStory**: Displays a top story with an image, headline, and description.
 
-#### Props
+- **Scoreboard**: Shows the scoreboard for a match, including team logos, names, records, and scores.
 
-- `homeTeam`: An object representing the home team.
-- `awayTeam`: An object representing the away team.
-- `gameStatus`: The current status of the game.
-- `gameUrl`: The URL to the game details.
+- **Standings**: Displays the standings of teams in a division.
 
-#### Example
+- **LatestNews**: Lists the latest news items with images and links.
 
-```typescript
-import { ScoreboardComponent } from 'fantasy-baseball-ui';
-const homeTeam = {
-    shortName: 'NYY',
-    record: '51-26',
-    score: 100,
-    logoUrl: 'https://midfield.mlbstatic.com/v1/team/147/spots/72',
-    },
-    const awayTeam = {
-    shortName: 'BAL',
-    record: '49-27',
-    score: 90,
-    logoUrl: 'https://midfield.mlbstatic.com/v1/team/110/spots/72',
-};
-<ScoreboardComponent homeTeam={homeTeam} awayTeam={awayTeam} gameStatus="In Progress" gameUrl="https://www.mlb.com/games/2024/03/01/cws-nyy-103" />;
-```
+- **PlayerStats**: Shows the statistics of players.
 
-### Standings
+- **PlayerStats**: Shows the statistics of players.
 
-The `StandingsComponent` shows the standings of teams in a division.
+## Usage
 
-#### Props
+To use the components from the Fantasy Baseball UI library in your project, follow these steps:
 
-- `division`: (Optional) The name of the division.
-- `teams`: An array of team objects.
+1. **Install the library**: If you haven't already, install the library using npm or yarn.
 
-#### Example
+    ```bash
+    npm install fantasy-baseball-ui
+    ```
 
-```typescript
-import { StandingsComponent } from 'fantasy-baseball-ui';
-const teams = [{
-    name: 'NYY',
-    wins: 51,
-    losses: 26,
-    percentage: '.662',
-    gamesBehind: '-',
-    logoUrl: 'https://midfield.mlbstatic.com/v1/team/147/spots/72',
-},
-{
-    name: 'BAL',
-    wins: 49,
-    losses: 25,
-    percentage: '.662',
-    gamesBehind: '0.5',
-    logoUrl: 'https://midfield.mlbstatic.com/v1/team/110/spots/72',
-}];
-<StandingsComponent division="AL East" teams={teams} />;
-```
+2. **Use the components**: Use the imported components in your JSX.
+
+    ```typescript
+    import React from 'react';
+    import { TopStory, ScoreboardComponent, StandingsComponent, LatestNewsComponent, PlayerStatsComponent } from 'fantasy-baseball-ui';
+
+    const App: React.FC = () => {
+      return (
+        <div>
+          <TopStory
+            imageUrl="https://a.espncdn.com/combiner/i?img=%2Fphoto%2F2024%2F0301%2Fr%2Fpittsburgh-penguins-vs-baltimore-orioles_1200_675_x_450.jpg"
+            imageAlt="Pittsburgh Penguins vs Baltimore Orioles"
+            headline="Pittsburgh Penguins vs Baltimore Orioles"
+            description="Pittsburgh Penguins vs Baltimore Orioles"
+            link="https://www.mlb.com/news/news/article/2024/03/01/103-nyy-baltimore-orioles-game-news-and-updates"
+          />
+          <ScoreboardComponent
+            date="May-01"
+            homeTeam={{
+              logoUrl: 'https://midfield.mlbstatic.com/v1/team/147/spots/72',
+              name: 'New York Yankees',
+              shortName: 'NYY',
+              record: '51-26',
+              score: 11,
+            }}
+            awayTeam={{
+              logoUrl: 'https://midfield.mlbstatic.com/v1/team/110/spots/72',
+              name: 'Baltimore Orioles',
+              shortName: 'BAL',
+              record: '50-27',
+              score: 9,
+            }}
+            status="In Progress"
+            gameUrl="https://www.mlb.com/games/2024/03/01/cws-nyy-103"
+          />
+          <StandingsComponent
+            division="AL East"
+            teams={[
+              {
+                name: 'NYY',
+                shortName: 'NYM',
+                wins: 51,
+                losses: 26,
+                percentage: '.662',
+                gamesBehind: '-',
+                logoUrl: 'https://midfield.mlbstatic.com/v1/team/147/spots/72',
+              },
+              {
+                name: 'BAL',
+                shortName: 'BAL',
+                wins: 49,
+                losses: 25,
+                percentage: '.662',
+                gamesBehind: '0.5',
+                logoUrl: 'https://midfield.mlbstatic.com/v1/team/110/spots/72',
+              },
+              // Add more teams as needed
+            ]}
+          />
+          <LatestNewsComponent
+            sectionTitle="Latest News"
+            newsItems={[
+              {
+                id: '1',
+                href: 'https://www.mlb.com/news/news/article/2024/03/01/103-nyy-baltimore-orioles-game-news-and-updates',
+                imgSrc: 'https://a.espncdn.com/combiner/i?img=%2Fphoto%2F2024%2F0301%2Fr%2Fpittsburgh-penguins-vs-baltimore-orioles_1200_675_x_450.jpg',
+                imgAlt: '',
+                text: 'Pittsburgh Penguins vs Baltimore Orioles',
+              },
+              {
+                id: '2',
+                href: 'https://www.mlb.com/news/news/article/2024/03/01/103-nyy-baltimore-orioles-game-news-and-updates',
+                imgSrc: 'https://a.espncdn.com/combiner/i?img=%2Fphoto%2F2024%2F0301%2Fr%2Fpittsburgh-penguins-vs-baltimore-orioles_1200_675_x_450.jpg',
+                imgAlt: '',
+                text: 'Pittsburgh Penguins vs Baltimore Orioles',
+              },
+            ]}
+          />
+          <PlayerStatsComponent
+            players={[
+              {
+                name: 'Aaron Nola',
+                team: 'PHI',
+                stats: {
+                  G: 10,
+                  AB: 5,
+                  R: 5,
+                  H: 5,
+                  '2B': 5,
+                  '3B': 5,
+                  HR: 5,
+                  RBI: 5,
+                  BB: 5,
+                  SO: 5,
+                  SB: 5,
+                  CS: 5,
+                  AVG: 5,
+                  OBP: 5,
+                  SLG: 5,
+                  OPS: 5,
+                },
+              },
+              {
+                name: 'Jimmy Garoppolo',
+                team: 'BAL',
+                stats: {
+                  G: 10,
+                  AB: 5,
+                  R: 5,
+                  H: 5,
+                  '2B': 5,
+                  '3B': 5,
+                  HR: 5,
+                  RBI: 5,
+                  BB: 5,
+                  SO: 5,
+                  SB: 5,
+                  CS: 5,
+                  AVG: 5,
+                  OBP: 5,
+                  SLG: 5,
+                  OPS: 5,
+                },
+              },
+            ]}
+          />
+        </div>
+      );
+    };
+
+    export default App;
+    ```
 
 ## Development
 
