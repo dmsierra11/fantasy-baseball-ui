@@ -1,28 +1,26 @@
-import Avatar from '@mui/material/Avatar';
-import Paper from '@mui/material/Paper';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import Typography from '@mui/material/Typography';
+import {
+  Avatar,
+  Stack,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Typography,
+} from '@mui/material';
 import type { TeamStandingsType } from '../../types';
+import { SectionCard } from '../SectionCard';
 
-interface StandingsProps {
+interface PositionsTableProps {
   division?: string;
   teams: TeamStandingsType[];
 }
 
-const Standings: React.FC<StandingsProps> = ({ division, teams }) => {
+const PositionsTable: React.FC<PositionsTableProps> = ({ division, teams }) => {
   return (
-    <Paper className="p-4">
-      {division && (
-        <Typography variant="h6" mb={2}>
-          {division}
-        </Typography>
-      )}
-      <TableContainer component={Paper}>
+    <SectionCard sectionTitle={division}>
+      <TableContainer>
         <Table className="min-w-full">
           <TableHead>
             <TableRow>
@@ -55,7 +53,33 @@ const Standings: React.FC<StandingsProps> = ({ division, teams }) => {
           </TableBody>
         </Table>
       </TableContainer>
-    </Paper>
+    </SectionCard>
+  );
+};
+
+interface StandingsProps {
+  title?: string;
+  leagueTables: PositionsTableProps[];
+  stackDirection?: 'row' | 'column';
+}
+
+const Standings: React.FC<StandingsProps> = ({
+  title,
+  leagueTables,
+  stackDirection,
+}) => {
+  return (
+    <SectionCard sectionTitle={title}>
+      <Stack spacing={2} direction={stackDirection}>
+        {leagueTables.map((table) => (
+          <PositionsTable
+            key={table.division}
+            division={table.division}
+            teams={table.teams}
+          />
+        ))}
+      </Stack>
+    </SectionCard>
   );
 };
 

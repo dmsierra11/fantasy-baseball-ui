@@ -65,13 +65,46 @@ const sampleTeams: TeamStandingsType[] = [
 // Conditions Test
 export const Default: Story = {
   args: {
-    division: 'AL East',
-    teams: sampleTeams,
+    title: 'Standings',
+    leagueTables: [
+      {
+        division: 'AL East',
+        teams: sampleTeams,
+      },
+    ],
   },
 };
 
-export const NoDivision: Story = {
+export const MultipleDivisionsHorizontal: Story = {
   args: {
-    teams: sampleTeams,
+    title: 'Standings',
+    leagueTables: [
+      {
+        division: 'AL East',
+        teams: sampleTeams,
+      },
+      {
+        division: 'AL West',
+        teams: sampleTeams,
+      },
+    ],
+    stackDirection: 'row',
+  },
+};
+
+export const MultipleDivisionsVertical: Story = {
+  args: {
+    title: 'Standings',
+    leagueTables: [
+      {
+        division: 'AL East',
+        teams: sampleTeams,
+      },
+      {
+        division: 'AL West',
+        teams: sampleTeams,
+      },
+    ],
+    stackDirection: 'column',
   },
 };
