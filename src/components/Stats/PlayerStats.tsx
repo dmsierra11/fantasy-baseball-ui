@@ -1,4 +1,3 @@
-import Paper from '@mui/material/Paper';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -17,7 +16,7 @@ const PlayerStats: React.FC<PlayerStatsProps> = ({ players, sectionTitle }) => {
   const fields = Object.keys(players[0].stats);
   return (
     <SectionCard sectionTitle={sectionTitle}>
-      <TableContainer component={Paper} style={{ overflowX: 'auto' }}>
+      <TableContainer style={{ overflowX: 'auto' }}>
         <Table className="min-w-full">
           <TableHead>
             <TableRow>

@@ -7,7 +7,10 @@ interface SectionCardProps {
   children: React.ReactNode;
 }
 
-export const SectionCard: React.FC<SectionCardProps> = ({ sectionTitle, children }) => {
+export const SectionCard: React.FC<SectionCardProps> = ({
+  sectionTitle,
+  children,
+}) => {
   return (
     <Paper className="p-4">
       {sectionTitle && (

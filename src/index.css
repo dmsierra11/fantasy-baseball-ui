@@ -13,6 +13,10 @@
 }
 
 @layer components {
+  .card-wrapper {
+    @apply hover:shadow-xl transition-shadow duration-200 min-w-[200px];
+  }
+
   .content-card-container {
     @apply bg-white p-4 rounded-lg shadow-md;
   }
