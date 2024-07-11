@@ -5,26 +5,18 @@ import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import Typography from '@mui/material/Typography';
 import type { PlayerStatsType } from '../../types';
+import { SectionCard } from '../SectionCard';
 
 interface PlayerStatsProps {
   players: PlayerStatsType[];
   sectionTitle?: string;
 }
 
-const PlayerStats: React.FC<PlayerStatsProps> = ({
-  players,
-  sectionTitle,
-}) => {
+const PlayerStats: React.FC<PlayerStatsProps> = ({ players, sectionTitle }) => {
   const fields = Object.keys(players[0].stats);
   return (
-    <Paper className="p-4">
-      {sectionTitle && (
-        <Typography variant="h6" mb={2}>
-          {sectionTitle}
-        </Typography>
-      )}
+    <SectionCard sectionTitle={sectionTitle}>
       <TableContainer component={Paper} style={{ overflowX: 'auto' }}>
         <Table className="min-w-full">
           <TableHead>
@@ -49,7 +41,7 @@ const PlayerStats: React.FC<PlayerStatsProps> = ({
           </TableBody>
         </Table>
       </TableContainer>
-    </Paper>
+    </SectionCard>
   );
 };
 
