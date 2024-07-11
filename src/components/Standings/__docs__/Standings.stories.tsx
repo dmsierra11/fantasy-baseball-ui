@@ -1,20 +1,20 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import '../../../index.css';
-import type { TeamStandings } from '../../../types';
-import { StandingsComponent } from '../Standings';
+import type { TeamStandingsType } from '../../../types';
+import { Standings } from '../Standings';
 
-const meta: Meta<typeof StandingsComponent> = {
+const meta: Meta<typeof Standings> = {
   title: 'Standings',
-  component: StandingsComponent,
+  component: Standings,
   parameters: {
     layout: 'centered',
   },
 };
 
 export default meta;
-type Story = StoryObj<typeof StandingsComponent>;
+type Story = StoryObj<typeof Standings>;
 
-const sampleTeams: TeamStandings[] = [
+const sampleTeams: TeamStandingsType[] = [
   {
     name: 'NYY',
     shortName: 'NYM',
@@ -65,13 +65,46 @@ const sampleTeams: TeamStandings[] = [
 // Conditions Test
 export const Default: Story = {
   args: {
-    division: 'AL East',
-    teams: sampleTeams,
+    title: 'Standings',
+    leagueTables: [
+      {
+        division: 'AL East',
+        teams: sampleTeams,
+      },
+    ],
   },
 };
 
-export const NoDivision: Story = {
+export const MultipleDivisionsHorizontal: Story = {
   args: {
-    teams: sampleTeams,
+    title: 'Standings',
+    leagueTables: [
+      {
+        division: 'AL East',
+        teams: sampleTeams,
+      },
+      {
+        division: 'AL West',
+        teams: sampleTeams,
+      },
+    ],
+    stackDirection: 'row',
+  },
+};
+
+export const MultipleDivisionsVertical: Story = {
+  args: {
+    title: 'Standings',
+    leagueTables: [
+      {
+        division: 'AL East',
+        teams: sampleTeams,
+      },
+      {
+        division: 'AL West',
+        teams: sampleTeams,
+      },
+    ],
+    stackDirection: 'column',
   },
 };

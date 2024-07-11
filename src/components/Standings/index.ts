@@ -1,1 +1,1 @@
-export { StandingsComponent } from './Standings';
+export { Standings } from './Standings';

@@ -1,10 +1,10 @@
-export interface Team {
+export interface TeamType {
   logoUrl: string;
   name: string;
   shortName: string;
 }
 
-export type TeamScore = Team & {
+export type TeamScoreType = TeamType & {
   record: string;
   score?: number;
   runs?: number;
@@ -12,7 +12,7 @@ export type TeamScore = Team & {
   errors?: number;
 };
 
-export type TeamStandings = Team & {
+export type TeamStandingsType = TeamType & {
   wins: number;
   losses: number;
   gamesPlayed?: number;

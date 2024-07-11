@@ -1,6 +1,6 @@
-import { TeamScore } from './team';
+import type { TeamScoreType } from './team';
 
-export interface Scoreboard {
-  homeTeam: TeamScore;
-  awayTeam: TeamScore;
+export interface ScoreboardType {
+  homeTeam: TeamScoreType;
+  awayTeam: TeamScoreType;
 }

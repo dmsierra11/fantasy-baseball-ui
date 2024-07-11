@@ -1,37 +1,37 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import '../../../index.css';
-import type { Team, TeamScore } from '../../../types';
-import { ScoreboardComponent } from '../Scoreboard';
+import type { TeamScoreType, TeamType } from '../../../types';
+import { Scoreboard } from '../Scoreboard';
 
-const meta: Meta<typeof ScoreboardComponent> = {
+const meta: Meta<typeof Scoreboard> = {
   title: 'Scoreboard',
-  component: ScoreboardComponent,
+  component: Scoreboard,
   parameters: {
     layout: 'centered',
   },
 };
 
 export default meta;
-type Story = StoryObj<typeof ScoreboardComponent>;
+type Story = StoryObj<typeof Scoreboard>;
 
-const Team1: Team = {
-  logoUrl: 'https://midfield.mlbstatic.com/v1/team/147/spots/72',
+const Team1: TeamType = {
+  logoUrl: 'https://www.mlbstatic.com/team-logos/team-cap-on-light/147.svg',
   name: 'New York Yankees',
   shortName: 'NYY',
 };
 
-const Team2: Team = {
-  logoUrl: 'https://midfield.mlbstatic.com/v1/team/110/spots/72',
+const Team2: TeamType = {
+  logoUrl: 'https://www.mlbstatic.com/team-logos/team-cap-on-light/110.svg',
   name: 'Baltimore Orioles',
   shortName: 'BAL',
 };
 
-const homeTeam: TeamScore = {
+const homeTeam: TeamScoreType = {
   ...Team1,
   record: `51-26`,
   score: 11,
 };
-const awayTeam: TeamScore = {
+const awayTeam: TeamScoreType = {
   ...Team2,
   record: `50-27`,
   score: 9,
@@ -40,6 +40,25 @@ const awayTeam: TeamScore = {
 // Conditions Test
 export const Default: Story = {
   args: {
+    date: 'Mon Jul 08 2024 18:01:30 GMT+0200',
+    homeTeam: {
+      logoUrl: homeTeam.logoUrl,
+      name: homeTeam.name,
+      shortName: homeTeam.shortName,
+      record: homeTeam.record,
+    },
+    awayTeam: {
+      logoUrl: awayTeam.logoUrl,
+      name: awayTeam.name,
+      shortName: awayTeam.shortName,
+      record: awayTeam.record,
+    },
+  },
+};
+
+export const Finished: Story = {
+  args: {
+    date: 'Mon Jul 08 2024 18:01:30 GMT+0200',
     homeTeam: {
       logoUrl: homeTeam.logoUrl,
       name: homeTeam.name,
@@ -54,26 +73,49 @@ export const Default: Story = {
       record: awayTeam.record,
       score: awayTeam.score,
     },
-    status: 'In Progress',
-    gameUrl: 'https://www.mlb.com/games/2024/03/01/cws-nyy-103',
+    status: 'final',
   },
 };
 
-export const NotStarted: Story = {
+export const Postponed: Story = {
   args: {
-    date: 'May-01',
+    date: 'Mon Jul 08 2024 18:01:30 GMT+0200',
     homeTeam: {
       logoUrl: homeTeam.logoUrl,
       name: homeTeam.name,
       shortName: homeTeam.shortName,
       record: homeTeam.record,
+      score: homeTeam.score,
     },
     awayTeam: {
       logoUrl: awayTeam.logoUrl,
       name: awayTeam.name,
       shortName: awayTeam.shortName,
       record: awayTeam.record,
+      score: awayTeam.score,
     },
-    gameUrl: 'https://www.mlb.com/games/2024/03/01/cws-nyy-103',
+    status: 'postponed',
+  },
+};
+
+export const InProgress: Story = {
+  args: {
+    date: 'Mon Jul 08 2024 18:01:30 GMT+0200',
+    homeTeam: {
+      logoUrl: homeTeam.logoUrl,
+      name: homeTeam.name,
+      shortName: homeTeam.shortName,
+      record: homeTeam.record,
+      score: homeTeam.score,
+    },
+    awayTeam: {
+      logoUrl: awayTeam.logoUrl,
+      name: awayTeam.name,
+      shortName: awayTeam.shortName,
+      record: awayTeam.record,
+      score: awayTeam.score,
+    },
+    status: 'started',
+    progress: 2,
   },
 };

@@ -1,17 +1,17 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import '../../../index.css';
-import { LatestNewsComponent } from '../LatestNews';
+import { LatestNews } from '../LatestNews';
 
-const meta: Meta<typeof LatestNewsComponent> = {
+const meta: Meta<typeof LatestNews> = {
   title: 'LatestNews',
-  component: LatestNewsComponent,
+  component: LatestNews,
   parameters: {
     layout: 'centered',
   },
 };
 
 export default meta;
-type Story = StoryObj<typeof LatestNewsComponent>;
+type Story = StoryObj<typeof LatestNews>;
 
 // Conditions Test
 export const Default: Story = {
@@ -21,19 +21,40 @@ export const Default: Story = {
       {
         id: '1',
         href: 'https://www.mlb.com/news/news/article/2024/03/01/103-nyy-baltimore-orioles-game-news-and-updates',
-        imgSrc:
-          'https://a.espncdn.com/combiner/i?img=%2Fphoto%2F2024%2F0301%2Fr%2Fpittsburgh-penguins-vs-baltimore-orioles_1200_675_x_450.jpg',
+        imgSrc: 'https://midfield.mlbstatic.com/v1/team/147/spots/72',
         imgAlt: '',
-        text: 'Pittsburgh Penguins vs Baltimore Orioles',
+        text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. ',
       },
       {
         id: '2',
         href: 'https://www.mlb.com/news/news/article/2024/03/01/103-nyy-baltimore-orioles-game-news-and-updates',
-        imgSrc:
-          'https://a.espncdn.com/combiner/i?img=%2Fphoto%2F2024%2F0301%2Fr%2Fpittsburgh-penguins-vs-baltimore-orioles_1200_675_x_450.jpg',
+        imgSrc: 'https://midfield.mlbstatic.com/v1/team/140/spots/72',
         imgAlt: '',
-        text: 'Pittsburgh Penguins vs Baltimore Orioles',
+        text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. ',
       },
     ],
+  },
+};
+
+export const WithDivider: Story = {
+  args: {
+    sectionTitle: 'Latest News',
+    newsItems: [
+      {
+        id: '1',
+        href: 'https://www.mlb.com/news/news/article/2024/03/01/103-nyy-baltimore-orioles-game-news-and-updates',
+        imgSrc: 'https://midfield.mlbstatic.com/v1/team/147/spots/72',
+        imgAlt: '',
+        text: 'Complete All-Star Game rosters include familiar faces, 32 first-timers',
+      },
+      {
+        id: '2',
+        href: 'https://www.mlb.com/news/news/article/2024/03/01/103-nyy-baltimore-orioles-game-news-and-updates',
+        imgSrc: 'https://midfield.mlbstatic.com/v1/team/140/spots/72',
+        imgAlt: '',
+        text: 'Team-by-team breakdown of the 2024 All-Stars',
+      },
+    ],
+    divider: true,
   },
 };

@@ -1,1 +1,1 @@
-export { PlayerStatsComponent } from './PlayerStats';
+export { PlayerStats } from './PlayerStats';

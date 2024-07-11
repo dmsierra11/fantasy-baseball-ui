@@ -1,51 +1,86 @@
-import { TeamStandings } from '../../types';
+import {
+  Avatar,
+  Stack,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Typography,
+} from '@mui/material';
+import type { TeamStandingsType } from '../../types';
+import { SectionCard } from '../SectionCard';
 
-interface StandingsProps {
+interface PositionsTableProps {
   division?: string;
-  teams: TeamStandings[];
+  teams: TeamStandingsType[];
 }
 
-const StandingsComponent: React.FC<StandingsProps> = ({ division, teams }) => {
+const PositionsTable: React.FC<PositionsTableProps> = ({ division, teams }) => {
   return (
-    <div className="card-wrapper">
-      {division && <h3>{division}</h3>}
-      <div className="table-container">
-        <div className="table-scroller">
-          <table className="min-w-full">
-            <thead>
-              <tr>
-                <th>Team</th>
-                <th>W</th>
-                <th>L</th>
-                <th>%</th>
-                <th>GB</th>
-              </tr>
-            </thead>
-            <tbody>
-              {teams.map((team) => (
-                <tr key={team.name} className="hover:bg-gray-50">
-                  <td>
-                    <div className="flex items-center">
-                      <img
-                        src={team.logoUrl}
-                        alt={team.name}
-                        className="w-6 h-6 mr-2"
-                      />
-                      <span>{team.name}</span>
-                    </div>
-                  </td>
-                  <td>{team.wins}</td>
-                  <td>{team.losses}</td>
-                  <td>{team.percentage}</td>
-                  <td>{team.gamesBehind}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
+    <SectionCard sectionTitle={division}>
+      <TableContainer>
+        <Table className="min-w-full">
+          <TableHead>
+            <TableRow>
+              <TableCell>Team</TableCell>
+              <TableCell>W</TableCell>
+              <TableCell>L</TableCell>
+              <TableCell>%</TableCell>
+              <TableCell>GB</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {teams.map((team) => (
+              <TableRow key={team.name} className="hover:bg-gray-50">
+                <TableCell>
+                  <div className="flex items-center">
+                    <Avatar
+                      src={team.logoUrl}
+                      alt={team.name}
+                      className="w-6 h-6 mr-2"
+                    />
+                    <Typography variant="body1">{team.name}</Typography>
+                  </div>
+                </TableCell>
+                <TableCell>{team.wins}</TableCell>
+                <TableCell>{team.losses}</TableCell>
+                <TableCell>{team.percentage}</TableCell>
+                <TableCell>{team.gamesBehind}</TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
+    </SectionCard>
   );
 };
 
-export { StandingsComponent };
+interface StandingsProps {
+  title?: string;
+  leagueTables: PositionsTableProps[];
+  stackDirection?: 'row' | 'column';
+}
+
+const Standings: React.FC<StandingsProps> = ({
+  title,
+  leagueTables,
+  stackDirection,
+}) => {
+  return (
+    <SectionCard sectionTitle={title}>
+      <Stack spacing={2} direction={stackDirection}>
+        {leagueTables.map((table) => (
+          <PositionsTable
+            key={table.division}
+            division={table.division}
+            teams={table.teams}
+          />
+        ))}
+      </Stack>
+    </SectionCard>
+  );
+};
+
+export { Standings };

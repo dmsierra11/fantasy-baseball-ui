@@ -1,51 +1,48 @@
+import { Paper, Typography } from '@mui/material';
+import Avatar from '@mui/material/Avatar';
+import Stack from '@mui/material/Stack';
 import React from 'react';
-import type { NewsItem } from '../../types/news';
+import type { NewsItemType } from '../../types/news';
+import { SectionCard } from '../SectionCard';
 import './LatestNews.css';
 
 interface LatestNewsProps {
-  newsItems: NewsItem[];
+  newsItems: NewsItemType[];
   sectionTitle?: string;
+  divider?: boolean;
 }
 
-const NewsItem: React.FC<NewsItem> = ({ href, imgSrc, imgAlt, text }) => {
+const NewsItem: React.FC<NewsItemType> = ({ href, imgSrc, imgAlt, text }) => {
   return (
-    <li className="headline-stack-card-container">
-      <div className="content-card-container">
-        <div className="headline-container">
-          <a className="link headline-link" href={href}>
-            <div className="headline-wrapper">
-              <div className="spot-container">
-                <div className="image-wrapper">
-                  <img src={imgSrc} alt={imgAlt} className="img" />
-                </div>
-              </div>
-              <span>{text}</span>
-            </div>
-          </a>
-        </div>
-      </div>
-    </li>
+    <a href={href}>
+      <Paper className="card-wrapper" variant="outlined">
+        <Stack
+          direction="row"
+          spacing={2}
+          p={2}
+          minHeight={100}
+          alignItems="center"
+        >
+          <Avatar alt={imgAlt} src={imgSrc} />
+          <Typography variant="h6">{text}</Typography>
+        </Stack>
+      </Paper>
+    </a>
   );
 };
 
-const LatestNewsComponent: React.FC<LatestNewsProps> = ({
-  newsItems,
-  sectionTitle,
-}) => {
+const LatestNews: React.FC<LatestNewsProps> = ({ newsItems, sectionTitle }) => {
   return (
-    <div className="card-wrapper">
-      <section>
-        {sectionTitle && (
-          <h2 className="headline-stack-title">{sectionTitle}</h2>
-        )}
-        <ul className="headline-stack-list">
-          {newsItems.map((item) => (
+    <SectionCard sectionTitle={sectionTitle}>
+      <Stack direction="column" spacing={2}>
+        {newsItems.map((item) => (
+          <>
             <NewsItem key={item.id} {...item} />
-          ))}
-        </ul>
-      </section>
-    </div>
+          </>
+        ))}
+      </Stack>
+    </SectionCard>
   );
 };
 
-export { LatestNewsComponent };
+export { LatestNews };
