@@ -20,31 +20,29 @@ const TopStory: React.FC<TopStoryProps> = ({
   link,
 }) => {
   return (
-      <Paper data-cmp-id="top-story" style={{ overflowX: 'auto' }}>
-        <a href={link}>
-          <Box className="media-container">
-            <CardMedia
-              component="img"
-              image={imageUrl}
-              alt={imageAlt}
-              className="img"
-              data-testid="image"
-            />
-          </Box>
-          <Box className="content-container">
-            <Typography
-              variant="h4"
-              className="headline-container"
-              fontWeight="bold"
-            >
-              {headline}
-            </Typography>
-            <Typography variant="body1" p={2}>
-              {description}
-            </Typography>
-          </Box>
-        </a>
-      </Paper>
+    <Paper>
+      <a href={link}>
+        <Box className="media-container">
+          <CardMedia
+            component="img"
+            image={imageUrl}
+            alt={imageAlt}
+            className="img"
+            data-testid="image"
+          />
+        </Box>
+        <Box className="content-container">
+          <Typography
+            variant="h5"
+            className="headline-container"
+            fontWeight="900"
+          >
+            {headline}
+          </Typography>
+          <Typography p={2}>{description}</Typography>
+        </Box>
+      </a>
+    </Paper>
   );
 };
 
