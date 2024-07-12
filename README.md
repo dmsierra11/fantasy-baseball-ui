@@ -50,7 +50,7 @@ To use the components from the Fantasy Baseball UI library in your project, foll
 
     ```typescript
     import React from 'react';
-    import { TopStory, ScoreboardComponent, StandingsComponent, LatestNewsComponent, PlayerStatsComponent } from 'fantasy-baseball-ui';
+    import { TopStory, Scoreboard, Standings, LatestNews, PlayerStats } from 'fantasy-baseball-ui';
 
     const App: React.FC = () => {
       return (
@@ -62,7 +62,7 @@ To use the components from the Fantasy Baseball UI library in your project, foll
             description="Pittsburgh Penguins vs Baltimore Orioles"
             link="https://www.mlb.com/news/news/article/2024/03/01/103-nyy-baltimore-orioles-game-news-and-updates"
           />
-          <ScoreboardComponent
+          <Scoreboard
             date="May-01"
             homeTeam={{
               logoUrl: 'https://midfield.mlbstatic.com/v1/team/147/spots/72',
@@ -81,7 +81,7 @@ To use the components from the Fantasy Baseball UI library in your project, foll
             status="In Progress"
             gameUrl="https://www.mlb.com/games/2024/03/01/cws-nyy-103"
           />
-          <StandingsComponent
+          <Standings
             division="AL East"
             teams={[
               {
@@ -105,7 +105,7 @@ To use the components from the Fantasy Baseball UI library in your project, foll
               // Add more teams as needed
             ]}
           />
-          <LatestNewsComponent
+          <LatestNews
             sectionTitle="Latest News"
             newsItems={[
               {
@@ -124,7 +124,7 @@ To use the components from the Fantasy Baseball UI library in your project, foll
               },
             ]}
           />
-          <PlayerStatsComponent
+          <PlayerStats
             players={[
               {
                 name: 'Aaron Nola',

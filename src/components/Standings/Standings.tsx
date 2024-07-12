@@ -61,16 +61,18 @@ interface StandingsProps {
   title?: string;
   leagueTables: PositionsTableProps[];
   stackDirection?: 'row' | 'column';
+  component?: 'div' | 'paper';
 }
 
 const Standings: React.FC<StandingsProps> = ({
   title,
   leagueTables,
   stackDirection,
+  component,
 }) => {
   return (
-    <SectionCard sectionTitle={title}>
-      <Stack spacing={2} direction={stackDirection}>
+    <SectionCard sectionTitle={title} component={component}>
+      <Stack spacing={2} direction={stackDirection} sx={{ overflowX: 'auto' }}>
         {leagueTables.map((table) => (
           <PositionsTable
             key={table.division}

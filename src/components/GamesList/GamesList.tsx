@@ -1,27 +1,23 @@
-import { Typography } from '@mui/material';
-import Paper from '@mui/material/Paper';
 import Stack from '@mui/material/Stack';
 import React from 'react';
 import type { MatchType } from '../../types';
 
 import { Scoreboard } from '../Scoreboard';
+import { SectionCard } from '../SectionCard';
 
 interface GamesListProps {
   games: MatchType[];
   sectionTitle?: string;
+  component?: 'div' | 'paper';
 }
 
 const GamesList: React.FC<GamesListProps> = ({
   games,
   sectionTitle,
+  component,
 }) => {
   return (
-    <Paper className="p-4">
-      {sectionTitle && (
-        <Typography variant="h5" mb={2}>
-          {sectionTitle}
-        </Typography>
-      )}
+    <SectionCard sectionTitle={sectionTitle} component={component}>
       <Stack direction="row" spacing={2} sx={{ overflowX: 'auto' }}>
         {games.map((game, index) => (
           <>
@@ -29,7 +25,7 @@ const GamesList: React.FC<GamesListProps> = ({
           </>
         ))}
       </Stack>
-    </Paper>
+    </SectionCard>
   );
 };
 
