@@ -32,8 +32,11 @@ const PositionsTable: React.FC<PositionsTableProps> = ({ division, teams }) => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {teams.map((team) => (
-              <TableRow key={team.name} className="hover:bg-gray-50">
+            {teams.map((team, index) => (
+              <TableRow
+                key={`${team.name}-${index}`}
+                className="hover:bg-gray-50"
+              >
                 <TableCell>
                   <div className="flex items-center">
                     <Avatar
@@ -73,9 +76,9 @@ const Standings: React.FC<StandingsProps> = ({
   return (
     <SectionCard sectionTitle={title} component={component}>
       <Stack spacing={2} direction={stackDirection} sx={{ overflowX: 'auto' }}>
-        {leagueTables.map((table) => (
+        {leagueTables.map((table, index) => (
           <PositionsTable
-            key={table.division}
+            key={`${table.division}-${index}`}
             division={table.division}
             teams={table.teams}
           />

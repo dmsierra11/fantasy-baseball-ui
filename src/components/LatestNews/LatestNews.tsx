@@ -12,7 +12,7 @@ interface LatestNewsProps {
   divider?: boolean;
 }
 
-const NewsItem: React.FC<NewsItemType> = ({ href, imgSrc, imgAlt, text }) => {
+const NewsItem: React.FC<NewsItemType> = ({ href, imgSrc, imgAlt, title }) => {
   return (
     <a href={href}>
       <Stack
@@ -24,7 +24,7 @@ const NewsItem: React.FC<NewsItemType> = ({ href, imgSrc, imgAlt, text }) => {
         alignItems="center"
       >
         <Avatar alt={imgAlt} src={imgSrc} />
-        <Typography fontWeight="700">{text}</Typography>
+        <Typography fontWeight="700">{title}</Typography>
       </Stack>
     </a>
   );
@@ -34,8 +34,8 @@ const LatestNews: React.FC<LatestNewsProps> = ({ newsItems, sectionTitle }) => {
   return (
     <SectionCard sectionTitle={sectionTitle}>
       <Stack>
-        {newsItems.map((item) => (
-          <NewsItem key={item.id} {...item} />
+        {newsItems.map((item, index) => (
+          <NewsItem key={`${index}`} {...item} />
         ))}
       </Stack>
     </SectionCard>

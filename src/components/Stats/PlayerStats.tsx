@@ -10,10 +10,16 @@ import { SectionCard } from '../SectionCard';
 interface PlayerStatsProps {
   players: PlayerStatsType[];
   sectionTitle?: string;
+  limit?: number;
 }
 
-const PlayerStats: React.FC<PlayerStatsProps> = ({ players, sectionTitle }) => {
+const PlayerStats: React.FC<PlayerStatsProps> = ({
+  players,
+  sectionTitle,
+  limit,
+}) => {
   const fields = Object.keys(players[0].stats);
+  const limitedPlayers = limit ? players.slice(0, limit) : players;
   return (
     <SectionCard sectionTitle={sectionTitle}>
       <TableContainer style={{ overflowX: 'auto' }}>
@@ -28,9 +34,12 @@ const PlayerStats: React.FC<PlayerStatsProps> = ({ players, sectionTitle }) => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {players.map((player) => (
+            {limitedPlayers.map((player, index) => (
               <TableRow key={player.name} className="hover:bg-gray-50">
-                <TableCell>{player.name}</TableCell>
+                <TableCell>
+                  {index + 1}. {player.name}
+                  {player.position ? ` (${player.position})` : ''}
+                </TableCell>
                 <TableCell>{player.team}</TableCell>
                 {fields.map((field) => (
                   <TableCell key={field}>{player.stats[field]}</TableCell>

@@ -1,6 +1,6 @@
 {
   "name": "fantasy-baseball-ui",
-  "version": "1.0.1",
+  "version": "1.0.4",
   "private": false,
   "type": "module",
   "main": "./dist/index.umd.js",
