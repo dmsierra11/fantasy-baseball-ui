@@ -20,9 +20,7 @@ const GamesList: React.FC<GamesListProps> = ({
     <SectionCard sectionTitle={sectionTitle} component={component}>
       <Stack direction="row" spacing={2} sx={{ overflowX: 'auto' }}>
         {games.map((game, index) => (
-          <>
-            <Scoreboard key={index} {...game} />
-          </>
+          <Scoreboard key={`${index}`} {...game} />
         ))}
       </Stack>
     </SectionCard>

@@ -13,11 +13,13 @@ interface ScoreboardProps extends MatchType {
 }
 
 const TeamRow: React.FC<TeamScoreType> = ({
+  name,
   shortName,
   logoUrl,
   record,
   score,
 }) => {
+  const teamName = shortName || name.split(' ')[0];
   return (
     <Stack
       key={shortName}
@@ -27,7 +29,7 @@ const TeamRow: React.FC<TeamScoreType> = ({
     >
       <Stack direction={'row'} spacing={2}>
         <Avatar src={logoUrl} alt={shortName} sx={{ width: 24, height: 24 }} />
-        <Typography fontWeight="bold">{shortName}</Typography>
+        <Typography fontWeight="bold">{teamName}</Typography>
       </Stack>
       <Typography fontSize="small" color="textSecondary">
         {record}
@@ -56,15 +58,15 @@ const ScoreboardContent: React.FC<ScoreboardProps> = ({
 }) => {
   const gameStatus = status === 'started' ? getGameProgress(progress) : status;
   return (
-      <Card variant="outlined" className="scoreboard-card-wrapper">
-        <CardContent>
-          <Typography variant="overline" color="textSecondary" fontWeight="600">
-            {gameStatus || date}
-          </Typography>
-          <TeamRow {...homeTeam} />
-          <TeamRow {...awayTeam} />
-        </CardContent>
-      </Card>
+    <Card variant="outlined" className="scoreboard-card-wrapper">
+      <CardContent>
+        <Typography variant="overline" color="textSecondary" fontWeight="600">
+          {gameStatus || date}
+        </Typography>
+        <TeamRow {...homeTeam} />
+        <TeamRow {...awayTeam} />
+      </CardContent>
+    </Card>
   );
 };
 

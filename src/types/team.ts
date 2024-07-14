@@ -1,7 +1,7 @@
 export interface TeamType {
-  logoUrl: string;
   name: string;
-  shortName: string;
+  logoUrl?: string;
+  shortName?: string;
 }
 
 export type TeamScoreType = TeamType & {
