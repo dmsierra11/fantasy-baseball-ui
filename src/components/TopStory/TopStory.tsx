@@ -6,10 +6,10 @@ import './TopStory.css';
 
 interface TopStoryProps {
   imageUrl: string;
-  imageAlt: string;
   headline: string;
   description: string;
   link: string;
+  imageAlt?: string;
 }
 
 const TopStory: React.FC<TopStoryProps> = ({
