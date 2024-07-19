@@ -16,19 +16,21 @@ type Story = StoryObj<typeof ResponsiveAppBar>;
 // Conditions Test
 export const Default: Story = {
   args: {
-    pages: ['Posiciones', 'Torneos', 'Calendario'],
-    settings: ['Perfil', 'Cuenta', 'Panel', 'Cerrar Sesión'],
-  },
-};
-
-export const NoPages: Story = {
-  args: {
+    pages: [
+      { label: 'Posiciones', path: '/' },
+      { label: 'Torneos', path: '/' },
+      { label: 'Calendario', path: '/' },
+    ],
     settings: ['Perfil', 'Cuenta', 'Panel', 'Cerrar Sesión'],
   },
 };
 
 export const NoSettings: Story = {
   args: {
-    pages: ['Posiciones', 'Torneos', 'Calendario'],
+    pages: [
+      { label: 'Posiciones', path: '/' },
+      { label: 'Torneos', path: '/' },
+      { label: 'Calendario', path: '/' },
+    ],
   },
 };
