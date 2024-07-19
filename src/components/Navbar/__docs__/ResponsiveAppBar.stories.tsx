@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import logo from '../../../assets/images/LMS.png';
 import '../../../index.css';
 import { ResponsiveAppBar } from '../ResponsiveAppBar';
 
@@ -19,20 +18,17 @@ export const Default: Story = {
   args: {
     pages: ['Posiciones', 'Torneos', 'Calendario'],
     settings: ['Perfil', 'Cuenta', 'Panel', 'Cerrar Sesión'],
-    logoUri: logo,
   },
 };
 
 export const NoPages: Story = {
   args: {
     settings: ['Perfil', 'Cuenta', 'Panel', 'Cerrar Sesión'],
-    logoUri: logo,
   },
 };
 
 export const NoSettings: Story = {
   args: {
     pages: ['Posiciones', 'Torneos', 'Calendario'],
-    logoUri: logo,
   },
 };

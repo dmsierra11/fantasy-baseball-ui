@@ -6,3 +6,7 @@ export interface PlayerStatsType {
     [key: string]: string | number;
   };
 }
+
+export type StatsType = {
+  [key: string]: string | number;
+};
