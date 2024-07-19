@@ -13,8 +13,11 @@ import Typography from '@mui/material/Typography';
 import * as React from 'react';
 
 interface ResponsiveAppBarProps {
-  pages: string[];
-  settings: string[];
+  pages: {
+    label: string;
+    path: string;
+  }[];
+  settings?: string[];
   logo?: string;
 }
 
@@ -57,8 +60,9 @@ export function ResponsiveAppBar({
     setAnchorElUser(event.currentTarget);
   };
 
-  const handleCloseNavMenu = () => {
+  const handleCloseNavMenu = (href: string) => {
     setAnchorElNav(null);
+    window.location.href = href;
   };
 
   const handleCloseUserMenu = () => {
@@ -112,9 +116,9 @@ export function ResponsiveAppBar({
                 display: { xs: 'block', md: 'none' },
               }}
             >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+              {pages.map(({ label, path }) => (
+                <MenuItem key={label} onClick={() => handleCloseNavMenu(path)}>
+                  <Typography textAlign="center">{label}</Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -135,28 +139,32 @@ export function ResponsiveAppBar({
             }}
           />
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((page) => (
+            {pages.map(({ label, path }) => (
               <Button
-                key={page}
-                onClick={handleCloseNavMenu}
+                key={label}
+                onClick={() => handleCloseNavMenu(path)}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                {page}
+                {label}
               </Button>
             ))}
           </Box>
 
           <Box sx={{ flexGrow: 0, cursor: 'pointer' }}>
             <Stack direction="row" spacing={2} alignItems="center">
-              <Typography display={{ xs: 'none', md: 'flex' }}>
-                Iniciar sesión
-              </Typography>
-              <IconButton
-                onClick={handleOpenUserMenu}
-                sx={{ p: 0, display: { xs: 'flex', md: 'none' } }}
-              >
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-              </IconButton>
+              {settings && (
+                <Typography display={{ xs: 'none', md: 'flex' }}>
+                  {settings[0]}
+                </Typography>
+              )}
+              {settings && (
+                <IconButton
+                  onClick={handleOpenUserMenu}
+                  sx={{ p: 0, display: { xs: 'flex', md: 'none' } }}
+                >
+                  <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                </IconButton>
+              )}
             </Stack>
             <Menu
               sx={{ mt: '45px' }}
@@ -174,11 +182,12 @@ export function ResponsiveAppBar({
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
-              ))}
+              {settings &&
+                settings.map((setting) => (
+                  <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                    <Typography textAlign="center">{setting}</Typography>
+                  </MenuItem>
+                ))}
             </Menu>
           </Box>
         </Toolbar>
