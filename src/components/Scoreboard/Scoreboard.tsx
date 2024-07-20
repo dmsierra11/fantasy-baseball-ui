@@ -1,4 +1,4 @@
-import { Typography } from '@mui/material';
+import { Link, Typography } from '@mui/material';
 import Avatar from '@mui/material/Avatar';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
@@ -34,7 +34,7 @@ const TeamRow: React.FC<TeamScoreType> = ({
       <Typography fontSize="small" color="textSecondary">
         {record}
       </Typography>
-      {score && <Typography fontWeight="bold">{score}</Typography>}
+      {score && <Typography variant="h3">{score}</Typography>}
     </Stack>
   );
 };
@@ -51,17 +51,20 @@ const getGameProgress = (progress?: number | string) => {
 
 const ScoreboardContent: React.FC<ScoreboardProps> = ({
   date,
+  time,
   homeTeam,
   awayTeam,
   status,
   progress,
 }) => {
   const gameStatus = status === 'started' ? getGameProgress(progress) : status;
+  const formattedDate = formatDate(date);
+  const formattedDateAndTime = `${formattedDate} - ${time}`;
   return (
     <Card variant="outlined" className="scoreboard-card-wrapper">
       <CardContent>
         <Typography variant="overline" color="textSecondary" fontWeight="600">
-          {gameStatus || date}
+          {gameStatus || formattedDateAndTime}
         </Typography>
         <TeamRow {...homeTeam} />
         <TeamRow {...awayTeam} />
@@ -70,29 +73,21 @@ const ScoreboardContent: React.FC<ScoreboardProps> = ({
   );
 };
 
-const Scoreboard: React.FC<ScoreboardProps> = ({
-  date,
-  homeTeam,
-  awayTeam,
-  status,
-  gameDetailsPath,
-  progress,
-}) => {
+const Scoreboard: React.FC<ScoreboardProps> = (props) => {
+  const { date, gameDetailsPath, ...rest } = props;
   const formattedDate = formatDate(date);
-  if (gameDetailsPath) {
+  if (props.gameDetailsPath) {
     return (
-      <a href={gameDetailsPath}>
-        <ScoreboardContent
-          {...{ date: formattedDate, homeTeam, awayTeam, status, progress }}
-        />
-      </a>
+      <Link
+        href={gameDetailsPath}
+        underline="none"
+        sx={{ ':hover': { cursor: 'pointer' } }}
+      >
+        <ScoreboardContent {...{ date: formattedDate, ...rest }} />
+      </Link>
     );
   }
-  return (
-    <ScoreboardContent
-      {...{ date: formattedDate, homeTeam, awayTeam, status, progress }}
-    />
-  );
+  return <ScoreboardContent {...{ date: formattedDate, ...rest }} />;
 };
 
 export { Scoreboard };

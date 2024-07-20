@@ -119,3 +119,10 @@ export const InProgress: Story = {
     progress: 2,
   },
 };
+
+export const WithGameDetails: Story = {
+  args: {
+    ...InProgress.args,
+    gameDetailsPath: '/game/123',
+  },
+};
