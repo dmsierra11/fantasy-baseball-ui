@@ -1,21 +1,16 @@
 export interface TeamType {
   name: string;
-  logoUrl?: string;
-  shortName?: string;
+  logo?: string;
+  short_name?: string;
 }
-
-export type TeamScoreType = TeamType & {
+export interface TeamScoreType extends TeamType {
   record: string;
   score?: number;
-  runs?: number;
-  hits?: number;
-  errors?: number;
-};
-
-export type TeamStandingsType = TeamType & {
+}
+export interface TeamStandingsType extends TeamType {
   wins: number;
   losses: number;
-  gamesPlayed?: number;
-  percentage?: string;
-  gamesBehind?: string;
-};
+  games_played?: number;
+  win_percentage?: string;
+  games_behind?: string;
+}
