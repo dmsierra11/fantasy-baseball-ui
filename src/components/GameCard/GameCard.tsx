@@ -19,7 +19,7 @@ interface GameSideProps extends TeamScoreType {
 
 const GameTeam: React.FC<GameSideProps> = ({
   name,
-  logoUrl,
+  logo,
   record,
   score,
   additionalText,
@@ -39,7 +39,7 @@ const GameTeam: React.FC<GameSideProps> = ({
           <Typography variant="subtitle2">{additionalText}</Typography>
         )}
       </Stack>
-      <Avatar src={logoUrl} alt={name} sx={{ width: 50, height: 50 }} />
+      <Avatar src={logo} alt={name} sx={{ width: 50, height: 50 }} />
       {!isHome && <Typography variant="h4">{score}</Typography>}
     </Stack>
   );
@@ -47,8 +47,8 @@ const GameTeam: React.FC<GameSideProps> = ({
 
 const GameCard: React.FC<GameCardProps> = ({
   date,
-  awayTeam,
-  homeTeam,
+  away_team,
+  home_team,
   time,
   location,
 }) => {
@@ -61,12 +61,12 @@ const GameCard: React.FC<GameCardProps> = ({
           alignItems="center"
           justifyContent="space-between"
         >
-          <GameTeam {...awayTeam} />
+          <GameTeam {...away_team} />
           <Stack flex={1} alignItems="center">
             <Typography fontWeight="700">{date}</Typography>
             <Typography fontWeight="700">{time ?? 'TBD'}</Typography>
           </Stack>
-          <GameTeam {...homeTeam} isHome />
+          <GameTeam {...home_team} isHome />
         </Stack>
         {location && (
           <Stack>

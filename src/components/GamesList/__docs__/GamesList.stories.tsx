@@ -16,22 +16,22 @@ export default meta;
 type Story = StoryObj<typeof GamesList>;
 
 const Team1: TeamType = {
-  logoUrl: 'https://www.mlbstatic.com/team-logos/team-cap-on-light/147.svg',
+  logo: 'https://www.mlbstatic.com/team-logos/team-cap-on-light/147.svg',
   name: 'New York Yankees',
-  shortName: 'NYY',
+  short_name: 'NYY',
 };
 
 const Team2: TeamType = {
-  logoUrl: 'https://www.mlbstatic.com/team-logos/team-cap-on-light/110.svg',
+  logo: 'https://www.mlbstatic.com/team-logos/team-cap-on-light/110.svg',
   name: 'Baltimore Orioles',
-  shortName: 'BAL',
+  short_name: 'BAL',
 };
 
-const homeTeam: TeamScoreType = {
+const home_team: TeamScoreType = {
   ...Team1,
   record: `51-26`,
 };
-const awayTeam: TeamScoreType = {
+const away_team: TeamScoreType = {
   ...Team2,
   record: `50-27`,
 };
@@ -43,55 +43,54 @@ export const Default: Story = {
     games: [
       {
         date: 'Mon Jul 08 2024 18:01:30 GMT+0200',
-        homeTeam,
-        awayTeam,
+        home_team,
+        away_team,
       },
       {
         date: 'Mon Jul 08 2024 18:01:30 GMT+0200',
-        homeTeam,
-        awayTeam,
+        home_team,
+        away_team,
       },
       {
         date: 'Mon Jul 08 2024 18:01:30 GMT+0200',
-        homeTeam,
-        awayTeam,
+        home_team,
+        away_team,
       },
       {
         date: 'Mon Jul 08 2024 18:01:30 GMT+0200',
-        homeTeam,
-        awayTeam,
+        home_team,
+        away_team,
       },
       {
         date: 'Mon Jul 08 2024 18:01:30 GMT+0200',
-        homeTeam,
-        awayTeam,
+        home_team,
+        away_team,
       },
       {
         date: 'Mon Jul 08 2024 18:01:30 GMT+0200',
-        homeTeam,
-        awayTeam,
+        home_team,
+        away_team,
       },
       {
         date: 'Mon Jul 08 2024 18:01:30 GMT+0200',
-        homeTeam,
-        awayTeam,
+        home_team,
+        away_team,
       },
       {
         date: 'Mon Jul 08 2024 18:01:30 GMT+0200',
-        homeTeam,
-        awayTeam,
+        home_team,
+        away_team,
       },
       {
         date: 'Mon Jul 08 2024 18:01:30 GMT+0200',
-        homeTeam,
-        awayTeam,
+        home_team,
+        away_team,
       },
       {
         date: 'Mon Jul 08 2024 18:01:30 GMT+0200',
-        homeTeam,
-        awayTeam,
+        home_team,
+        away_team,
       },
     ],
   },
 };
-
