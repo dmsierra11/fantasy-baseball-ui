@@ -14,21 +14,21 @@ interface ScoreboardProps extends MatchType {
 
 const TeamRow: React.FC<TeamScoreType> = ({
   name,
-  shortName,
-  logoUrl,
+  short_name,
+  logo,
   record,
   score,
 }) => {
-  const teamName = shortName || name.split(' ')[0];
+  const teamName = short_name || name;
   return (
     <Stack
-      key={shortName}
+      key={short_name}
       direction={'row'}
       spacing={2}
       className="team-row-wrapper"
     >
       <Stack direction={'row'} spacing={2}>
-        <Avatar src={logoUrl} alt={shortName} sx={{ width: 24, height: 24 }} />
+        <Avatar src={logo} alt={short_name} sx={{ width: 24, height: 24 }} />
         <Typography fontWeight="bold">{teamName}</Typography>
       </Stack>
       <Typography fontSize="small" color="textSecondary">
@@ -52,8 +52,8 @@ const getGameProgress = (progress?: number | string) => {
 const ScoreboardContent: React.FC<ScoreboardProps> = ({
   date,
   time,
-  homeTeam,
-  awayTeam,
+  home_team,
+  away_team,
   status,
   progress,
 }) => {
@@ -66,8 +66,8 @@ const ScoreboardContent: React.FC<ScoreboardProps> = ({
         <Typography variant="overline" color="textSecondary" fontWeight="600">
           {gameStatus || formattedDateAndTime}
         </Typography>
-        <TeamRow {...homeTeam} />
-        <TeamRow {...awayTeam} />
+        <TeamRow {...home_team} />
+        <TeamRow {...away_team} />
       </CardContent>
     </Card>
   );

@@ -15,15 +15,15 @@ export default meta;
 type Story = StoryObj<typeof Scoreboard>;
 
 const Team1: TeamType = {
-  logoUrl: 'https://www.mlbstatic.com/team-logos/team-cap-on-light/147.svg',
+  logo: 'https://www.mlbstatic.com/team-logos/team-cap-on-light/147.svg',
   name: 'New York Yankees',
-  shortName: 'NYY',
+  short_name: 'NYY',
 };
 
 const Team2: TeamType = {
-  logoUrl: 'https://www.mlbstatic.com/team-logos/team-cap-on-light/110.svg',
+  logo: 'https://www.mlbstatic.com/team-logos/team-cap-on-light/110.svg',
   name: 'Baltimore Orioles',
-  shortName: 'BAL',
+  short_name: 'BAL',
 };
 
 const homeTeam: TeamScoreType = {
@@ -41,16 +41,16 @@ const awayTeam: TeamScoreType = {
 export const Default: Story = {
   args: {
     date: 'Mon Jul 08 2024 18:01:30 GMT+0200',
-    homeTeam: {
-      logoUrl: homeTeam.logoUrl,
+    home_team: {
+      logo: homeTeam.logo,
       name: homeTeam.name,
-      shortName: homeTeam.shortName,
+      short_name: homeTeam.short_name,
       record: homeTeam.record,
     },
-    awayTeam: {
-      logoUrl: awayTeam.logoUrl,
+    away_team: {
+      logo: awayTeam.logo,
       name: awayTeam.name,
-      shortName: awayTeam.shortName,
+      short_name: awayTeam.short_name,
       record: awayTeam.record,
     },
   },
@@ -59,17 +59,17 @@ export const Default: Story = {
 export const Finished: Story = {
   args: {
     date: 'Mon Jul 08 2024 18:01:30 GMT+0200',
-    homeTeam: {
-      logoUrl: homeTeam.logoUrl,
+    home_team: {
+      logo: homeTeam.logo,
       name: homeTeam.name,
-      shortName: homeTeam.shortName,
+      short_name: homeTeam.short_name,
       record: homeTeam.record,
       score: homeTeam.score,
     },
-    awayTeam: {
-      logoUrl: awayTeam.logoUrl,
+    away_team: {
+      logo: awayTeam.logo,
       name: awayTeam.name,
-      shortName: awayTeam.shortName,
+      short_name: awayTeam.short_name,
       record: awayTeam.record,
       score: awayTeam.score,
     },
@@ -80,17 +80,17 @@ export const Finished: Story = {
 export const Postponed: Story = {
   args: {
     date: 'Mon Jul 08 2024 18:01:30 GMT+0200',
-    homeTeam: {
-      logoUrl: homeTeam.logoUrl,
+    home_team: {
+      logo: homeTeam.logo,
       name: homeTeam.name,
-      shortName: homeTeam.shortName,
+      short_name: homeTeam.short_name,
       record: homeTeam.record,
       score: homeTeam.score,
     },
-    awayTeam: {
-      logoUrl: awayTeam.logoUrl,
+    away_team: {
+      logo: awayTeam.logo,
       name: awayTeam.name,
-      shortName: awayTeam.shortName,
+      short_name: awayTeam.short_name,
       record: awayTeam.record,
       score: awayTeam.score,
     },
@@ -101,17 +101,17 @@ export const Postponed: Story = {
 export const InProgress: Story = {
   args: {
     date: 'Mon Jul 08 2024 18:01:30 GMT+0200',
-    homeTeam: {
-      logoUrl: homeTeam.logoUrl,
+    home_team: {
+      logo: homeTeam.logo,
       name: homeTeam.name,
-      shortName: homeTeam.shortName,
+      short_name: homeTeam.short_name,
       record: homeTeam.record,
       score: homeTeam.score,
     },
-    awayTeam: {
-      logoUrl: awayTeam.logoUrl,
+    away_team: {
+      logo: awayTeam.logo,
       name: awayTeam.name,
-      shortName: awayTeam.shortName,
+      short_name: awayTeam.short_name,
       record: awayTeam.record,
       score: awayTeam.score,
     },
