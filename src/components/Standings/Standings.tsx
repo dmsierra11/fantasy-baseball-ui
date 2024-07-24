@@ -40,7 +40,7 @@ const PositionsTable: React.FC<PositionsTableProps> = ({ division, teams }) => {
                 <TableCell>
                   <div className="flex items-center">
                     <Avatar
-                      src={team.logoUrl}
+                      src={team.logo}
                       alt={team.name}
                       className="w-6 h-6 mr-2"
                     />
@@ -49,8 +49,8 @@ const PositionsTable: React.FC<PositionsTableProps> = ({ division, teams }) => {
                 </TableCell>
                 <TableCell>{team.wins}</TableCell>
                 <TableCell>{team.losses}</TableCell>
-                <TableCell>{team.percentage}</TableCell>
-                <TableCell>{team.gamesBehind}</TableCell>
+                <TableCell>{team.win_percentage || '-'}</TableCell>
+                <TableCell>{team.games_behind || '-'}</TableCell>
               </TableRow>
             ))}
           </TableBody>
