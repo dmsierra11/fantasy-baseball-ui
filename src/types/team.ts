@@ -4,7 +4,7 @@ export interface TeamType {
   short_name?: string;
 }
 export interface TeamScoreType extends TeamType {
-  record: string;
+  record?: string;
   score?: number;
 }
 export interface TeamStandingsType extends TeamType {

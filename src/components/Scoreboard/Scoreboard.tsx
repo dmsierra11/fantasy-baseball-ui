@@ -31,10 +31,11 @@ const TeamRow: React.FC<TeamScoreType> = ({
         <Avatar src={logo} alt={short_name} sx={{ width: 24, height: 24 }} />
         <Typography fontWeight="bold">{teamName}</Typography>
       </Stack>
-      <Typography fontSize="small" color="textSecondary">
+      {record && <Typography fontSize="small" color="textSecondary">
         {record}
       </Typography>
-      {score && <Typography variant="h3">{score}</Typography>}
+      }
+      {score && <Typography variant="h5">{score}</Typography>}
     </Stack>
   );
 };
@@ -52,6 +53,7 @@ const getGameProgress = (progress?: number | string) => {
 const ScoreboardContent: React.FC<ScoreboardProps> = ({
   date,
   time,
+  name,
   home_team,
   away_team,
   status,
@@ -64,7 +66,7 @@ const ScoreboardContent: React.FC<ScoreboardProps> = ({
     <Card variant="outlined" className="scoreboard-card-wrapper">
       <CardContent>
         <Typography variant="overline" color="textSecondary" fontWeight="600">
-          {gameStatus || formattedDateAndTime}
+          {name || gameStatus || formattedDateAndTime}
         </Typography>
         <TeamRow {...home_team} />
         <TeamRow {...away_team} />

@@ -63,17 +63,15 @@ export const Finished: Story = {
       logo: homeTeam.logo,
       name: homeTeam.name,
       short_name: homeTeam.short_name,
-      record: homeTeam.record,
       score: homeTeam.score,
     },
     away_team: {
       logo: awayTeam.logo,
       name: awayTeam.name,
       short_name: awayTeam.short_name,
-      record: awayTeam.record,
       score: awayTeam.score,
     },
-    status: 'final',
+    status: 'Juego 1',
   },
 };
 

@@ -6,9 +6,10 @@ export interface MatchType {
   id?: string;
   date: string;
   time?: string;
+  name?: string;
   home_team: TeamScoreType;
   away_team: TeamScoreType;
-  status?: MatchStatus;
+  status?: MatchStatus | string;
   progress?: string | number;
   location?: string;
 }
