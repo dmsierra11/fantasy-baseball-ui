@@ -8,6 +8,7 @@ import type { PlayerStatsType } from '../../types';
 import { SectionCard } from '../SectionCard';
 
 interface PlayerStatsProps {
+  categories: string[];
   players: PlayerStatsType[];
   sectionTitle?: string;
   limit?: number;
@@ -15,11 +16,12 @@ interface PlayerStatsProps {
 
 const PlayerStats: React.FC<PlayerStatsProps> = ({
   players,
+  categories,
   sectionTitle,
   limit,
 }) => {
-  const fields = Object.keys(players[0].stats);
   const limitedPlayers = limit ? players.slice(0, limit) : players;
+  console.log('categories', categories);
   return (
     <SectionCard sectionTitle={sectionTitle}>
       <TableContainer style={{ overflowX: 'auto' }}>
@@ -28,7 +30,7 @@ const PlayerStats: React.FC<PlayerStatsProps> = ({
             <TableRow>
               <TableCell>Player</TableCell>
               <TableCell>Team</TableCell>
-              {fields.map((field) => (
+              {categories.map((field) => (
                 <TableCell key={field}>{field}</TableCell>
               ))}
             </TableRow>
@@ -41,8 +43,8 @@ const PlayerStats: React.FC<PlayerStatsProps> = ({
                   {player.position ? ` (${player.position})` : ''}
                 </TableCell>
                 <TableCell>{player.team}</TableCell>
-                {fields.map((field) => (
-                  <TableCell key={field}>{player.stats[field]}</TableCell>
+                {categories.map((field) => (
+                  <TableCell key={field}>{player.stats[field] || 0}</TableCell>
                 ))}
               </TableRow>
             ))}

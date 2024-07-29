@@ -13,7 +13,7 @@ import Typography from '@mui/material/Typography';
 import * as React from 'react';
 
 interface ResponsiveAppBarProps {
-  pages: {
+  pages?: {
     label: string;
     path: string;
   }[];
@@ -116,7 +116,7 @@ export function ResponsiveAppBar({
                 display: { xs: 'block', md: 'none' },
               }}
             >
-              {pages.map(({ label, path }) => (
+              {pages && pages.map(({ label, path }) => (
                 <MenuItem key={label} onClick={() => handleCloseNavMenu(path)}>
                   <Typography textAlign="center">{label}</Typography>
                 </MenuItem>
@@ -139,7 +139,7 @@ export function ResponsiveAppBar({
             }}
           />
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map(({ label, path }) => (
+            {pages && pages.map(({ label, path }) => (
               <Button
                 key={label}
                 onClick={() => handleCloseNavMenu(path)}
